@@ -1,23 +1,26 @@
-Genome Data
-===========
+Data Core
+=========
 
-Standardized genomic datasets for selected model organisms
+Standardized data generation scripts and data sets supporting research efforts
+in the Korf Lab.
 
-## Generic Sample Data ##
+## Eukaryotic Model Organism Genomic Data ##
 
-Provide scripts and sample data for developing training/testing sets for some common eukaryotic genomes. The sample data includes approximately 1% of each genome. Data formats are FASTA and GFF3. 
+Intent: scripts and sample data for developing training/testing sets for some
+common eukaryotic genomes. The sample data includes approximately 1% of each
+genome. Data formats are FASTA and GFF3. 
 
 Genomes include:
 
 + Invertebrates
-  + Caenorhabditis elegans
-  + Drosophila melanogaster
+  + Caenorhabditis elegans - 1% from the start of each chromosome
+  + Drosophila melanogaster - 1% from the start of each chromosome
 + Vertebrates
   + Danio rerio
-  + Homo sapiens
+  + Homo sapiens - some parts of the human genome
   + Mus musculus
 + Plants
-  + Arabidopsis thaliana
+  + Arabidopsis thaliana - 1% from the start of each chromosome
   + Oryza sativa
 + Fungi
   + Saccharomyces cereviseae
@@ -25,7 +28,7 @@ Genomes include:
 
 ## Related Works ##
 
-Most of the scripts rely on the KorfLab grimoire library.
-
-Full data sets comprising entire genomes are located _elsewhere_ (but where?)
++ Most of the scripts rely on the KorfLab grimoire library
++ Previous efforts in lyman2020 repo
++ Full data sets comprising entire genomes are located _elsewhere_ ...
 
