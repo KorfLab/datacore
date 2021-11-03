@@ -4,31 +4,24 @@ Data Core
 Standardized data generation scripts and data sets supporting research efforts
 in the Korf Lab.
 
-## Eukaryotic Model Organism Genomic Data ##
+## Organization ##
 
-Intent: scripts and sample data for developing training/testing sets for some
-common eukaryotic genomes. The sample data includes approximately 1% of each
-genome. Data formats are FASTA and GFF3. 
++ `genome_xyz` - data build for a specific genome
++ `project_xyz` - data build for specific project
 
-Genomes include:
+Some raw data can be very large. For these reasons, we don't store the files in
+github but download them from their original sources and add them to a specific
+directory that is ignored by the repo. Each `genome` or `project` directory
+should have a `build` directory for these large files.
 
-+ Invertebrates
-  + Caenorhabditis elegans - 1% from the start of each chromosome
-  + Drosophila melanogaster - 1% from the start of each chromosome
-+ Vertebrates
-  + Danio rerio
-  + Homo sapiens - some parts of the human genome
-  + Mus musculus
-+ Plants
-  + Arabidopsis thaliana - 1% from the start of each chromosome
-  + Oryza sativa
-+ Fungi
-  + Saccharomyces cereviseae
-  + Schizosaccharomyces pompe
+## To Do ##
 
-## Related Works ##
-
-+ Most of the scripts rely on the KorfLab grimoire library
-+ Previous efforts in lyman2020 repo
-+ Full data sets comprising entire genomes are located _elsewhere_ ...
-
+- C. elegans build
+- Other genomes templated from worm
+- D. melanogaster
+- D. rerio
+- M. musculus
+- A. thaliana
+- O. sativa
+- S. cereviseae
+- S. pombe
