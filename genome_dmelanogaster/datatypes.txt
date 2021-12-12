@@ -1,0 +1,762 @@
+Affymetrix_GeneChip_v2
+	oligo	241819
+BATZ_Contrast
+	match	14219
+	match_part	54035
+BATZ_Contrast_NA
+	match	13586
+	match_part	48946
+BDTNP1_TFBS_Mad
+	TF_binding_site	279
+BDTNP1_TFBS_Med
+	TF_binding_site	12354
+BDTNP1_TFBS_bcd
+	TF_binding_site	1044
+BDTNP1_TFBS_da
+	TF_binding_site	12463
+BDTNP1_TFBS_dl
+	TF_binding_site	25214
+BDTNP1_TFBS_ftz
+	TF_binding_site	647
+BDTNP1_TFBS_gt
+	TF_binding_site	2094
+BDTNP1_TFBS_hb
+	TF_binding_site	3011
+BDTNP1_TFBS_kni
+	TF_binding_site	289
+BDTNP1_TFBS_prd
+	TF_binding_site	2806
+BDTNP1_TFBS_shn
+	TF_binding_site	540
+BDTNP1_TFBS_slp1
+	TF_binding_site	2083
+BDTNP1_TFBS_sna
+	TF_binding_site	4172
+BDTNP1_TFBS_tll
+	TF_binding_site	780
+BDTNP1_TFBS_twi
+	TF_binding_site	10824
+BDTNP1_TFBS_z
+	TF_binding_site	2563
+BKN_dsRNA
+	RNAi_reagent	17090
+Blastn_drsc_blast.txt
+	match	3902
+	match_part	3902
+Blat_20100301_Flybase_Amplicon.fasta
+	match	45
+	match_part	63
+Blat_20100308_Flybase_Amplicon.fasta
+	match	465
+	match_part	697
+Blat_20100723-Flybase_V1.fasta
+	match	671
+	match_part	809
+Blat_20100723-Flybase_V10.fasta
+	match	129
+	match_part	137
+Blat_20101119-Flybase_4.fasta
+	match	4
+	match_part	4
+Blat_20101122-Fb_SH-20101004.fasta
+	match	187
+	match_part	187
+Blat_20110228-FlyBase.fasta
+	match	943
+	match_part	943
+Blat_20120124_toFlybase.tab
+	match	397
+	match_part	397
+Blat_20120420Flybase.tab
+	match	10
+	match_part	12
+Blat_2012_06_hd2_genes.txt
+	match	86
+	match_part	86
+Blat_2012_06_hfa_genes.txt
+	match	179
+	match_part	179
+Blat_HD2_Mapping_r5.41.tab
+	match	16863
+	match_part	16863
+Blat_HFA_Mapping_r5.41.tab
+	match	14390
+	match_part	14390
+Blat_NIG_052112.txt
+	match	6419
+	match_part	21349
+Blat_TRiP.090810.blat.fasta
+	match	87
+	match_part	153
+Blat_TRiP.FB_analysis.fasta
+	match	2
+	match_part	2
+Blat_TRiP_hairpins_at_BL_1-15-09.fasta
+	match	317
+	match_part	345
+Blat_VALIUM20-20110715-Flybase.fasta
+	match	374
+	match_part	374
+Blat_VALIUM20-2012_1018-1022-FlyBase.fasta
+	match	675
+	match_part	675
+Blat_VALIUM20-2013_0114-FlyBase.fasta
+	match	362
+	match_part	362
+Blat_VALIUM20-2013_1120-FlyBase_fix.fasta
+	match	1571
+	match_part	1571
+Blat_VALIUM20-20140218_new_to_Flybase.fasta
+	match	459
+	match_part	459
+Blat_VALIUM20-20140416.fasta
+	match	357
+	match_part	357
+Blat_VALIUM20-20141107.fasta
+	match	982
+	match_part	982
+Blat_VALIUM20-20150730_to_Flybase.fasta
+	match	1335
+	match_part	1335
+Blat_VALIUM20-201512010_to_Flybase.fasta
+	match	65
+	match_part	65
+Blat_VALIUM20-20160113_to_Flybase.fasta
+	match	200
+	match_part	200
+Blat_VALIUM20-20160701_toFlybase.fasta
+	match	590
+	match_part	590
+Blat_VALIUM20-20160921_toFlybase.fasta
+	match	169
+	match_part	169
+Blat_VALIUM20-20161115_toFlybase.fasta
+	match	126
+	match_part	126
+Blat_VALIUM20-20161216_toFlybase.fasta
+	match	184
+	match_part	184
+Blat_VALIUM20-201705_toFlybase.fasta
+	match	239
+	match_part	239
+Blat_VALIUM20-20170710_toFlybase.fasta
+	match	18
+	match_part	18
+Blat_VALIUM20-20180813_toFlybase.fasta
+	match	10
+	match_part	10
+Blat_VALIUM20-Flybase_Check_12192016.fasta
+	match	36
+	match_part	36
+Blat_VALIUM20-HMC06177.fasta
+	match	1
+	match_part	1
+Blat_VALIUM20-correct_target-20140218.fasta
+	match	11
+	match_part	11
+Blat_VALIUM20-fb_2018_01.fasta
+	match	167
+	match_part	167
+Blat_VALIUM20-shrna.20190605.fasta
+	match	27
+	match_part	27
+Blat_VALIUM20-v20_v22_20141216.fasta
+	match	39
+	match_part	39
+Blat_VALIUM21-2012_1018-1022-FlyBase.fasta
+	match	1
+	match_part	1
+Blat_VALIUM22-20110715-Flybase.fasta
+	match	521
+	match_part	521
+Blat_VALIUM22-2012_1018-1022-FlyBase.fasta
+	match	245
+	match_part	245
+Blat_VALIUM22-2013_0114-FlyBase.fasta
+	match	197
+	match_part	197
+Blat_VALIUM22-2013_1120-FlyBase_fix.fasta
+	match	276
+	match_part	276
+Blat_VALIUM22-20140218_new_to_Flybase.fasta
+	match	41
+	match_part	41
+Blat_VALIUM22-20140416.fasta
+	match	5
+	match_part	5
+Blat_VALIUM22-20141107.fasta
+	match	9
+	match_part	9
+Blat_VALIUM22-20150730_to_Flybase.fasta
+	match	3
+	match_part	3
+Blat_VALIUM22-20160721_toFlybase.fasta
+	match	1
+	match_part	1
+Blat_VALIUM22-20160921_toFlybase.fasta
+	match	3
+	match_part	3
+Blat_VALIUM22-201705_toFlybase.fasta
+	match	6
+	match_part	6
+Blat_VALIUM22-20170710_toFlybase.fasta
+	match	4
+	match_part	4
+Blat_VALIUM22-correct_target-20140218.fasta
+	match	51
+	match_part	51
+Blat_VALIUM22-shrna.20190605.fasta
+	match	6
+	match_part	6
+Blat_VALIUM22-v20_v22_20141216.fasta
+	match	2
+	match_part	2
+Blat_VDRC-SH_shRNA.v2.fa
+	match	448
+	match_part	448
+Blat_VDRC-SH_shRNA.v3.fasta
+	match	94
+	match_part	94
+Blat_VDRC-SH_shRNA.v4.fa
+	match	182
+	match_part	182
+Blat_hairpins2_sub.fasta
+	match	238
+	match_part	267
+Blat_hd2_new.out
+	match	52
+	match_part	52
+Blat_hd2_new.txt
+	match	89
+	match_part	89
+Blat_hfa_new.out
+	match	299
+	match_part	299
+Blat_hfa_new.txt
+	match	284
+	match_part	284
+Blat_misc.fasta
+	match	94
+	match_part	127
+Blat_missing.fasta
+	match	2
+	match_part	5
+Blat_sf_to_fix.fasta
+	match	11
+	match_part	12
+Blat_trip_stocks_cat_blat.fasta
+	match	494
+	match_part	631
+Blat_tripsub_release2.csv
+	match	2
+	match_part	2
+Blat_vdrc_gd_sf_all_blat.fa
+	match	229
+	match_part	256
+Blat_vdrc_kk_sf_blat.fa
+	match	33
+	match_part	33
+Blat_vdrc_kk_sf_cgnone_blat.fa
+	match	45
+	match_part	45
+Blat_vrnai_Additional_Features_CGnone_blat.fa
+	match	5
+	match_part	5
+Blat_vrnai_Additional_Features_blat.fa
+	match	80
+	match_part	93
+Blat_vrnai_all_blat.fa
+	match	15131
+	match_part	17935
+Blat_vrnai_cgnone_blat.fa
+	match	652
+	match_part	652
+Blat_vrnai_kk_blat.fa
+	match	8298
+	match_part	8298
+Blat_vrnai_kk_fb2011_04_blat.fa
+	match	1667
+	match_part	1668
+CHORI-221_BAC
+	BAC_cloned_genomic_insert	3
+CHORI-223_BAC
+	BAC_cloned_genomic_insert	3
+CHORI-321_BAC
+	BAC_cloned_genomic_insert	12456
+CHORI-322_BAC
+	BAC_cloned_genomic_insert	36966
+CONGO
+	match	40543
+	match_part	40543
+ChIP_chip_Doc2_E4_6h_organism
+	TF_binding_site	1880
+ChIP_chip_Doc2_E6_8h_organism
+	TF_binding_site	1970
+ChIP_chip_Mef2_E10_12h_organism
+	TF_binding_site	1808
+ChIP_chip_Mef2_E2_4h_organism
+	TF_binding_site	444
+ChIP_chip_Mef2_E4_6h_organism
+	TF_binding_site	1834
+ChIP_chip_Mef2_E6_8h_organism
+	TF_binding_site	2186
+ChIP_chip_Mef2_E8_10h_organism
+	TF_binding_site	1737
+ChIP_chip_bap_E6_8h_organism
+	TF_binding_site	692
+ChIP_chip_bin_E10_12h_organism
+	TF_binding_site	1190
+ChIP_chip_bin_E6_8h_organism
+	TF_binding_site	1084
+ChIP_chip_bin_E8_10h_organism
+	TF_binding_site	613
+ChIP_chip_lmd_E6_8h_organism
+	TF_binding_site	1455
+ChIP_chip_pMad_E4_6h_organism
+	TF_binding_site	732
+ChIP_chip_pMad_E6_8h_organism
+	TF_binding_site	1966
+ChIP_chip_pan_E4_6h_organism
+	TF_binding_site	929
+ChIP_chip_pan_E6_8h_organism
+	TF_binding_site	2475
+ChIP_chip_pnr_E4_6h_organism
+	TF_binding_site	4942
+ChIP_chip_pnr_E6_8h_organism
+	TF_binding_site	5344
+ChIP_chip_slp1_E4_6h_organism
+	TF_binding_site	2753
+ChIP_chip_slp1_E6_8h_organism
+	TF_binding_site	3077
+ChIP_chip_sna_E2_4h_organism
+	TF_binding_site	2021
+ChIP_chip_tin_E2_4h_organism
+	TF_binding_site	814
+ChIP_chip_tin_E4_6h_organism
+	TF_binding_site	1154
+ChIP_chip_tin_E6_8h_organism
+	TF_binding_site	1017
+ChIP_chip_ttk_E6_8h_organism
+	TF_binding_site	2037
+ChIP_chip_twi_E2_4h_organism
+	TF_binding_site	1620
+ChIP_chip_twi_E4_6h_organism
+	TF_binding_site	1753
+ChIP_chip_twi_E6_8h_organism
+	TF_binding_site	1576
+ChIP_seq_H3K27Ac_E6_8h_mesoderm
+	region	5154
+ChIP_seq_H3K27me3_E6_8h_mesoderm
+	region	2047
+ChIP_seq_H3K36me3_E6_8h_mesoderm
+	region	3933
+ChIP_seq_H3K4me1_E6_8h_mesoderm
+	region	7490
+ChIP_seq_H3K4me3_E6_8h_mesoderm
+	region	3847
+ChIP_seq_H3K79me3_E6_8h_mesoderm
+	region	6810
+ChIP_seq_Mef2_E6_8h_organism
+	TF_binding_site	3832
+ChIP_seq_RpII33_E6_8h_mesoderm
+	region	5328
+Chromatin_types_NKI.Kc167_BLACK_Chromatin_types_NKI.Kc167
+	region	1710
+Chromatin_types_NKI.Kc167_BLUE_Chromatin_types_NKI.Kc167
+	region	2113
+Chromatin_types_NKI.Kc167_GREEN_Chromatin_types_NKI.Kc167
+	region	423
+Chromatin_types_NKI.Kc167_RED_Chromatin_types_NKI.Kc167
+	region	2036
+Chromatin_types_NKI.Kc167_YELLOW_Chromatin_types_NKI.Kc167
+	region	2144
+DGIL_snap
+	match	19631
+	match_part	69571
+DGIL_snap_homology
+	match	22937
+	match_part	76986
+DGRC_1
+	PCR_product	14095
+DGRC_2
+	oligo	12765
+DHGP
+	repeat_region	9042
+	tandem_repeat	246
+	transposable_element	162
+DIOPT
+	orthologous_to	581034
+	paralogous_to	149519
+DRSC_dsRNA
+	RNAi_reagent	36182
+Dmel_r3_r4_r5_drsc_mapped.txt
+	match	32280
+	match_part	32280
+DrosBAC
+	BAC_cloned_genomic_insert	5
+FlyBase
+	CDS	114964
+	DNA_motif	1
+	MNV	122
+	RNAi_reagent	1
+	chromosome_band	5728
+	chromosome_breakpoint	9755
+	complex_substitution	70
+	deletion	2707
+	delins	827
+	exon	85426
+	exon_junction	71483
+	five_prime_UTR	38345
+	gene	17874
+	golden_path	1870
+	insertion	149
+	insertion_site	1247
+	insulator	1
+	intron	71901
+	mRNA	30724
+	mature_protein_region	7
+	miRNA	485
+	ncRNA	3047
+	point_mutation	6499
+	polyA_site	86
+	polypeptide	30724
+	polypeptide_region	208996
+	pre_miRNA	262
+	protein_binding_site	1401
+	pseudogene	366
+	rRNA	115
+	region	2
+	regulatory_region	277
+	rescue_region	840
+	sequence_alteration	54
+	sequence_variant	68
+	snRNA	31
+	snoRNA	300
+	syntenic_region	978
+	tRNA	312
+	three_prime_UTR	28572
+	transposable_element	5736
+	transposable_element_insertion_site	70831
+GMR_Brain_exp_1
+	region	179
+GMR_Brain_exp_1_REDfly_CRMs
+	regulatory_region	6980
+HD_CFD
+	sgRNA	3309
+HFA_dsRNA
+	RNAi_reagent	15152
+Insulator_Class_I.mE01
+	insulator	4771
+Insulator_Class_II.mE01
+	insulator	2911
+MB8
+	match	79778
+	match_part	467847
+McPromoter3.0
+	match	1944
+	match_part	1944
+NCBI_gnomon
+	match	19720
+	match_part	81117
+NIG_RNAi_Fly_1
+	RNAi_reagent	21349
+ORTHODB
+	orthologous_to	822883
+REDfly_CRMs
+	regulatory_region	14169
+RGUI_geneid_v1.2
+	match	12386
+	match_part	52156
+RGUI_geneid_v1.2_u12
+	match	12717
+	match_part	55585
+ROBI_manual
+	match	36
+	match_part	77
+RPCI-98_BAC
+	BAC_cloned_genomic_insert	956
+Rosbash_Adult_Head_A-to-I_Editing_Sites
+	modified_RNA_base_feature	1033
+TRiP_1
+	RNAi_reagent	2360
+TRiP_2
+	RNAi_reagent	810
+TRiP_3
+	RNAi_reagent	9300
+TRiP_4
+	RNAi_reagent	1594
+TRiP_5
+	RNAi_reagent	96
+TRiP_KO
+	sgRNA	2484
+TRiP_OE_VPR
+	sgRNA	3094
+TRiP_OE_flySAM
+	sgRNA	15
+TRiP_OE_flySAM.dCas9
+	sgRNA	235
+TSS_RAMPAGE
+	TSS	31023
+Tandem_Repeat_Finder_75-20
+	match	2617
+	match_part	2617
+VDRC_GD
+	RNAi_reagent	18289
+VDRC_KK
+	RNAi_reagent	10696
+VDRC_SH
+	RNAi_reagent	724
+VDRC_VT
+	region	5188
+VDRC_VT_REDfly_CRMs
+	regulatory_region	3604
+Weizmann-KO
+	sgRNA	536
+Weizmann-KO_plasmid
+	sgRNA	1740
+_
+	match	1
+	match_part	1
+blastp_Dmel_proteomic
+	match	14648
+	match_part	16036
+blastx_masked_aa_SPTR.dmel
+	match	183430
+	match_part	319540
+blastx_masked_aa_SPTR.insect
+	match	16775
+	match_part	37469
+blastx_masked_aa_SPTR.othinv
+	match	21677
+	match_part	52859
+blastx_masked_aa_SPTR.othvert
+	match	18210
+	match_part	40497
+blastx_masked_aa_SPTR.plant
+	match	12140
+	match_part	25261
+blastx_masked_aa_SPTR.primate
+	match	21099
+	match_part	52713
+blastx_masked_aa_SPTR.rodent
+	match	21895
+	match_part	53873
+blastx_masked_aa_SPTR.worm
+	match	13906
+	match_part	32690
+blastx_masked_aa_SPTR.yeast
+	match	5634
+	match_part	11465
+blastx_masked_dmel-all-translation-r4.3.fasta
+	match	1260
+	match_part	2484
+blastx_masked_eisen_v2_orthologs_aa.fasta
+	match	1340
+	match_part	2293
+blastx_masked_inparanoid_dmel_orthologs_aa.fas
+	match	183
+	match_part	540
+dmel_domain_PFAM
+	match	20742
+	match_part	41066
+dmel_domain_SMART
+	match	16716
+	match_part	25871
+dmel_r3_to_dmel_r4_migration_dmel_r3_affy_oligos
+	match	197513
+	match_part	197513
+flybase
+	match	161085
+	match_part	392601
+flybase_Dmel_proteomicPeptide
+	match	195397
+	match_part	208996
+mE1_CBP_Enhancers
+	region	81
+mE1_HDAC_PRE
+	region	537
+mE1_TFBS_D
+	TF_binding_site	3258
+mE1_TFBS_Dll
+	TF_binding_site	74
+mE1_TFBS_GATAe
+	TF_binding_site	901
+mE1_TFBS_HSA
+	TF_binding_site	38560
+mE1_TFBS_Kr
+	TF_binding_site	869
+mE1_TFBS_Stat92E
+	TF_binding_site	105
+mE1_TFBS_Trl
+	TF_binding_site	6435
+mE1_TFBS_Ubx
+	TF_binding_site	1524
+mE1_TFBS_bab1
+	TF_binding_site	1227
+mE1_TFBS_cad
+	TF_binding_site	8667
+mE1_TFBS_chinmo
+	TF_binding_site	7053
+mE1_TFBS_cnc
+	TF_binding_site	697
+mE1_TFBS_disco
+	TF_binding_site	2628
+mE1_TFBS_en
+	TF_binding_site	22
+mE1_TFBS_eve
+	TF_binding_site	1738
+mE1_TFBS_ftz_f1
+	TF_binding_site	28
+mE1_TFBS_h
+	TF_binding_site	1944
+mE1_TFBS_hkb
+	TF_binding_site	1269
+mE1_TFBS_inv
+	TF_binding_site	3221
+mE1_TFBS_jumu
+	TF_binding_site	942
+mE1_TFBS_kn
+	TF_binding_site	785
+mE1_TFBS_run
+	TF_binding_site	333
+mE1_TFBS_sbb
+	TF_binding_site	1708
+mE1_TFBS_sens
+	TF_binding_site	19350
+mE1_TFBS_ttk
+	TF_binding_site	377
+mE1_TFBS_zfh1
+	TF_binding_site	887
+mE_Early_Replication_Origins_cells
+	origin_of_replication	818
+mE_Orc2_ChIP_Seq_cells
+	origin_of_replication	7244
+mE_Transcription_Start_Sites
+	TSS	12438
+multiple_libraries
+	modified_RNA_base_feature	971
+pA_sites_Lai
+	polyA_site	57706
+pA_sites_Lai_pA_sites_Moreira
+	polyA_site	4326
+pA_sites_Moreira
+	polyA_site	40024
+promoter
+	match	36901
+	match_part	36901
+prosplign_aa_ncbi_other
+	match	4631098
+	match_part	12210240
+prosplign_aa_ncbi_same
+	match	71253
+	match_part	264337
+repeat_runner_seg
+	match	21654
+	match_part	21654
+repeatmasker_dummy
+	match	29104
+	match_part	29104
+sim4_all_r32_subject_ortho_exons_nuc.
+	match	4212
+	match_part	6306
+sim4_dmel-all-ncRNA-r4.3.fasta
+	match	1
+	match_part	1
+sim4_dmel-all-pseudogene-r4.3.fasta
+	match	1
+	match_part	1
+sim4_dmel-all-transcript-r4.0.fasta
+	match	189
+	match_part	800
+sim4_dmel-all-transcript-r4.2.fasta
+	match	191
+	match_part	827
+sim4_dmel-all-transcript-r4.3.fasta
+	match	195
+	match_part	839
+sim4_dmel-all-transposon-r4.3.fasta
+	match	9374
+	match_part	17119
+sim4_eisen_v2_orthologs_nt.fasta
+	match	7
+	match_part	21
+sim4_na_ARGs.dros
+	match	1060
+	match_part	5615
+sim4_na_ARGsCDS.dros
+	match	984
+	match_part	4720
+sim4_na_HDP_RNAi.dmel
+	match	111
+	match_part	296
+sim4_na_HDP_mRNA.dmel
+	match	134
+	match_part	158
+sim4_na_cDNA.dros
+	match	195
+	match_part	383
+sim4_na_dbEST.diff.dmel
+	match	67086
+	match_part	76261
+sim4_na_dbEST.same.dmel
+	match	36410
+	match_part	43236
+sim4_na_gadfly.dros.RELEASE2
+	match	14248
+	match_part	57597
+sim4_na_gb.dmel
+	match	4340
+	match_part	6876
+sim4_na_gb.tpa.dmel
+	match	2306
+	match_part	2368
+sim4_na_het_transcript.dmel.RELEASE32
+	match	290
+	match_part	970
+sim4_na_re2.dros
+	match	555
+	match_part	1541
+sim4_na_smallRNA.dros
+	match	95
+	match_part	121
+sim4_na_transcript.dmel.RELEASE31
+	match	18986
+	match_part	86158
+sim4_na_transcript.dmel.RELEASE32
+	match	18790
+	match_part	89619
+sim4_preR5_gadfly4U_transcripts.fasta
+	match	214
+	match_part	399
+sim4_stencil_annotCDS.fa
+	match	3
+	match_part	9
+sim4tandem_na_gb.dmel
+	match	12884
+	match_part	15998
+splign_na_cDNA_ncbi
+	match	33453
+	match_part	132370
+splign_na_cDNA_ncbi.other
+	match	144
+	match_part	187
+splign_na_dbEST_ncbi
+	match	725314
+	match_part	1268931
+splign_na_dbEST_ncbi.other
+	match	191
+	match_part	330
+tRNAscan-SE
+	match	295
+	match_part	295
+tblastn_Dmel_r3.1
+	orthologous_region	18671
+tblastx_masked_na_dbEST.insect
+	match	34866
+	match_part	52400
+tblastxwrap_masked_na_baylorf1_scfchunk.dpse
+	match	263443
+	match_part	263443
+tblastxwrap_masked_na_scf_chunk_agambiae.fa
+	match	101179
+	match_part	101179
