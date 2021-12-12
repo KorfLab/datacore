@@ -1,7 +1,7 @@
 Notes
 =====
 
-Build process for D.melanogaster genome
+Build process for D.melanogaster genome. Templated off C. elegans build.
 
 ## R6.42 ##
 
@@ -54,5 +54,12 @@ The mini region build
 
 	haman --fasta 1pct.fa --gff 1pct.gff3 --out build/mini_region --segment region
 
-## Full Build ##
+## Full builds ##
 
+Genes
+
+	time haman --fasta build/r6.42.fa --gff build/r6.42.gff3 --out build/genes --segment gene
+
+Regions
+
+	time haman --fasta build/r6.42.fa --gff build/r6.42.gff3 --out build/regions --segment region
