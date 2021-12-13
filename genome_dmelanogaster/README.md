@@ -34,11 +34,9 @@ RNA-seq splicing is in exon_junction. Not sure where bulk RNA-seq is. The browse
 + source: FlyBase
 + type: exon_junction
 
-Creating a stripped-down GFF
+Creating a stripped-down GFF. This converts exon_junction to RNASeq_splice among other things.
 
 	perl flymunge.pl build/dmel-all-r6.42.gff.gz > build/r6.42.gff3
-
-Probably have to convert splicing information into score at some point.
 
 ## 1% builds ##
 
@@ -56,10 +54,10 @@ The mini region build
 
 ## Full builds ##
 
-Genes
+Gene build takes about 10.5 min and 2G RAM.
 
 	time haman --fasta build/r6.42.fa --gff build/r6.42.gff3 --out build/genes --segment gene
 
-Regions
+Region build takes about 6.5 min and 2G RAM.
 
 	time haman --fasta build/r6.42.fa --gff build/r6.42.gff3 --out build/regions --segment region
