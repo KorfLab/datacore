@@ -16,12 +16,11 @@ should have a `build` directory for these large files.
 
 ## To Do ##
 
-- C. elegans build
-- Other genomes templated from worm
-- D. melanogaster
++ C. elegans
++ D. melanogaster
++ A. thaliana
 - D. rerio
 - M. musculus
-- A. thaliana
 - O. sativa
 - S. cereviseae
 - S. pombe
