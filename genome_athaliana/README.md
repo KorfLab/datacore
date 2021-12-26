@@ -94,7 +94,7 @@ The mini region build
 
 ## Full builds ##
 
-Gene build takes about 30 min and 0.8G RAM.
+Gene build takes about 67 min and 1.6G RAM.
 
 	time haman --fasta build/genome.fa --gff build/genes.gff3 --out build/genes --segment gene
 
