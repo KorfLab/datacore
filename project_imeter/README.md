@@ -9,7 +9,7 @@ Start by building the A. thalaia genome from `datacore/genome_athaliana`. The ge
 
 ## Master File ##
 
-The master file contains information for most of the introns in the genome. It takes about XXX to build.
+The master file contains information for most of the introns in the genome. It takes about 30 sec and minimal memory to build.
 
 	python3 intron_build.py > ime_master.txt
 
@@ -33,18 +33,14 @@ The file is tab-separated and has the following columns
 	+ Stage 12 Flower
 + Sequence of the intron
 
-The file looks like this:
+The file looks like this (4 lines shown of 142,779):
 
-	AT1G01080.1     1374    1459    -       407     130     442     4126    4083    0       541     14      46      38      104     GTTAAGTTCGTTATCCATAAAAAGAATCTTGCTTGAGGAAACTTCTTCTACTGCTCTCTGGCTTTATCACAATCTCTCTTTTGCAG
-	AT1G01080.1     976     1064    -       654     191     383     4040    4371    0       410     16      48      47      202     GTAAGAGCCCGGGAAACCAAAAAACAAGTCTATCTTTCTTCTGGTTGAGTGTAAAGTTGAGTGCTTTGGTTTTGTTGCTATATATGAAG
+	AT3G02220.1     1057    1151    -       380     349     601     2717    3010    3       489     321     1010    49      499     GTAAGCTTCTCTAGTTACTTTGAAGAGTTTTTGAGATTTGTAAATGTGTATGTTTGTGTGATTTGGTCCTGAAGTTGCGTATTTGCTTGACATAG
+	AT3G02220.1     914     1008    -       362     302     677     2889    3291    0       462     373     1170    9       655     GTTTGTCTTTTAATTATTCCGCTTTTGGCTTCTAATGTTCAATTTCATGCTTGTTTTTGGGAGGTTGTTGCTGATTTCTTATTGATGTGATGCAG
+	AT3G02220.1     753     870     -       331     309     542     2861    2968    2       504     340     839     48      503     GTACTTGTACCTTGAAGACAGTCTTTCTTCTACTTATGCTAGATGCTGGTTTCCTTAAGAGTGGGTTTAGTAGACAAGATATTAAACTAATCTTGAGGTAATTATTCGTTTCTCGCAG
+	AT3G02220.1     565     688     -       283     249     571     2568    2308    5       471     374     697     25      265     GTTAGTGTTTTCTTTCTTTGCTTTTGTTCTCGTACTTTCTTGGCTAATTAGAGTGTATAGATCAGTATCTTGTTTTATAAGTTGATGTGTTATGGTATTGAAATGGGTATGAAACTGATAACAG
+
 
 ## Notes ##
 
 Some genes have alternative transcripts.
-
-
-	
-	
-	
-	
-	

@@ -16,7 +16,7 @@ def expression(intron, ftable):
 		strings.append(str(int(count[k])))
 	return '\t'.join(strings)
 
-root = '../genome_athaliana/build/mini_gene' # change to full build
+root = '../genome_athaliana/build/genes' # change to full build
 for d in os.listdir(root):
 	n = d[4:]
 	ff = f'{root}/{d}/{n}.fa'
