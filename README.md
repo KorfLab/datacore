@@ -14,7 +14,7 @@ github but download them from their original sources and add them to a specific
 directory that is ignored by the repo. Each `genome` or `project` directory
 should have a `build` directory for these large files.
 
-## To Do ##
+## Genomes ##
 
 + C. elegans
 + D. melanogaster
@@ -24,3 +24,10 @@ should have a `build` directory for these large files.
 - O. sativa
 - S. cereviseae
 - S. pombe
+
+## Projects ##
+
+- gendl
++ imeter
+- qalpha
+- splicing

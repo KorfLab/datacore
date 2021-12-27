@@ -39,7 +39,7 @@ foreach my $chr (sort keys %splice) {
 					print join("\t", $chr, 'RNASeq_splice', 'intron',
 						$beg, $end,
 						$splice{$chr}{$beg}{$end}{$str}{$stage}, $str, '.',
-						"Name=$stage"), "\n";
+						"ID=$stage"), "\n";
 				}
 			}
 		}
