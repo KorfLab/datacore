@@ -19,7 +19,7 @@ The file is tab-separated and has the following columns
 + Intron begin relative to start of gene
 + Intron end relative to start of gene
 + Strand of the gene in the genome
-+ 11 expression values for various tissues
++ 11 expression values (RNA-seq splice junctions) for various tissues
 	+ Aerial
 	+ Carpel
 	+ Dark Grown Seedling
