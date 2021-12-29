@@ -11,7 +11,7 @@ Start by building the A. thalaia genome from `datacore/genome_athaliana`. The ge
 
 The master file contains information for most of the introns in the genome. It takes about 30 sec and minimal memory to build.
 
-	python3 intron_build.py > ime_master.txt
+	python3 intron_build.py > at_ime_master.txt
 
 The file is tab-separated and has the following columns
 
