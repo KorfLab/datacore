@@ -27,7 +27,12 @@ should have a `build` directory for these large files.
 
 ## Projects ##
 
+Started
+
+- imeter
 - gendl
-+ imeter
-- qalpha
 - splicing
+
+Not started
+
+- qalpha
