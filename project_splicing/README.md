@@ -19,8 +19,7 @@ There are 1102 genes.
 
 Get some info aobut the genes of the APC set.
 
-	isostats.py isoformer apc.fa > 1102.txt
-	sort -nk5 1102.txt | less -N
+	isostats.py isoformer apc.fa | sort -nk5  > 1102.txt
 
 + 45 w/ less than 1000 isoforms
 + 145 w/ less than 10K isoforms
