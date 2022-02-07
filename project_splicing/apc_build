@@ -1,0 +1,97 @@
+#!/usr/bin/env python3
+
+import argparse
+import itertools
+import os
+import sys
+
+from grimoire.genome import Reader
+from isoform import short_intron, short_exon, gtag_sites
+
+
+#######
+# CLI #
+#######
+
+parser = argparse.ArgumentParser(
+	description='dataset builder for apc algorithm')
+parser.add_argument('build', type=str, metavar='<build>',
+	help='path to gene build directory (e.g. ../genome_celegans/build/genes)')
+parser.add_argument('--seqlen', type=int, metavar='<int>', default=1200,
+	required=False, help='maximum sequence length')
+parser.add_argument('--rnaseq', type=int, metavar='<int>', default=100000,
+	required=False, help='minimum RNAseq value')
+parser.add_argument('--splices', type=int, metavar='<int>', default=3,
+	required=False, help='maximum number of splices per transcript')
+parser.add_argument('--ilen', type=int, metavar='<int>', default=35,
+	required=False, help='minimum intron length')
+parser.add_argument('--elen', type=int, metavar='<int>', default=25,
+	required=False, help='minimum exon length')
+parser.add_argument('--flank', type=int, metavar='<int>', default=99,
+	required=False, help='genomic flank length')
+parser.add_argument('--isoforms', type=int, metavar='<int>', default=1000000,
+	required=False, help='maximum number of isoforms')
+arg = parser.parse_args()
+
+
+#############
+# Functions #
+#############
+
+# adapted from isoform.py for counts only
+
+def isoforms(seq, dons, accs, maxs, minin, minex, flank):
+	total = 0 # number of isoforms found
+	sites = min(len(dons), len(accs), maxs)
+	for n in range(1, sites+1):
+		for dsites in itertools.combinations(dons, n):
+			for asites in itertools.combinations(accs, n):
+				if short_intron(dsites, asites, minin): continue
+				if short_exon(dsites, asites, len(seq), flank, minex): continue
+				total += 1
+	return total
+
+
+########
+# Main #
+########
+
+print('# id\tlength\tintrons\tRNAseq\tisoforms')
+
+for d in os.listdir(arg.build):
+	n = d[4:]
+	ff = f'{arg.build}/{d}/{n}.fa'
+	gf = f'{arg.build}/{d}/{n}.gff'
+	
+	genome = Reader(gff=gf, fasta=ff)
+	chrom = next(genome) # there is only one in a gene build
+	if len(chrom.seq) > arg.seqlen: continue # short genes only in apc
+	
+	for gene in chrom.ftable.build_genes():
+		
+		# sanity checks
+		if len(gene.transcripts()) == 0: continue # skip ncRNAs
+		if gene.issues: continue                  # skip oddities
+		
+		# intron counts
+		ints = 0
+		for tx in gene.transcripts():
+			if len(tx.introns) > ints: ints = len(tx.introns)
+		if ints == 0: continue # need at least 1 intron (what if...)
+		
+		# expression
+		maxexp = 0
+		for f in chrom.ftable.features:
+			if f.source == 'RNASeq_splice' and f.score > maxexp:
+				maxexp = int(f.score)
+		if maxexp < arg.rnaseq: continue
+		
+		# isoform counts
+		dons, accs = gtag_sites(chrom.seq, arg.flank, arg.elen)
+		if len(dons) > 30: continue
+		isos = isoforms(chrom.seq, dons, accs, arg.splices, arg.ilen, arg.elen, arg.flank)
+		if isos > arg.isoforms: continue
+
+		print(f'{chrom.name}\t{len(chrom.seq)}\t{ints}\t{maxexp}\t{isos}\t')
+
+
