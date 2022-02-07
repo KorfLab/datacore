@@ -7,29 +7,20 @@ Splicing
 + Highly expressed region: RNASeq_splice > 100,000
 + Contain at least 1 intron in transcript
 + Protein-coding and no weird issues
++ Not too many isoforms (1M max)
 
 Requires `../datacore/genome_celegans/build` directory
 
-	python3 apc_build.py
-
-Creates output files `apc.fa` and `apc.gff` which were compressed before push.
-There are 1102 genes.
-
-## Post-processing APC ##
-
-Get some info aobut the genes of the APC set.
-
-	isostats.py isoformer apc.fa | sort -nk5  > 1102.txt
-
-+ 45 w/ less than 1000 isoforms
-+ 145 w/ less than 10K isoforms
-+ 351 w/ less than 100K isoforms
-+ 722 w/ less than 1M isoforms
-+ 1060 w/ less than 10M isoforms
+	/apc_build ../genome_celegans/build/genes > celegans.apc.txt
 
 ## To Do ##
 
-+ Make the `apc_build.py` program work for other genomes.
-	+ Use argparse
-	+ Name the output files with source genome
-+ Build the other apc datasets
+`apc_build` gives the names of the sequences to use, but does not create fasta
+or gff files to process. This set should be sorted and examine before making
+the mini test set.
+
+There needs to be some kind of visualizer
+
++ exon-intron structure of the gene(s) in the region
++ expression levels of each splice site
++ probabilities of the top isoforms?
