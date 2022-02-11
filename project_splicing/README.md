@@ -13,7 +13,7 @@ Requires `../genome_celegans/build` directory
 
 	./apc_build ../genome_celegans/build/genes | sort -nk5 > 772.txt
 	perl gather.pl
-
-
+	tar -zcf apc.tar.gz apc
+	rm -rf apc
 
 The `grapher.py` is a draft of an idea whose output is in `example.svg`.
