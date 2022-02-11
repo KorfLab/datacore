@@ -9,11 +9,11 @@ Splicing
 + Protein-coding and no weird issues
 + Not too many isoforms (1M max)
 
-Requires `../datacore/genome_celegans/build` directory
+Requires `../genome_celegans/build` directory
 
-	/apc_build ../genome_celegans/build/genes > celegans.apc.txt
+	./apc_build ../genome_celegans/build/genes | sort -nk5 > 772.txt
+	perl gather.pl
 
-The file `440.tar.gz` contains a directory `440` with 440 fasta and gff files
-that pass all of the current filters.
+
 
 The `grapher.py` is a draft of an idea whose output is in `example.svg`.

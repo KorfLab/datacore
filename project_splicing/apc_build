@@ -62,34 +62,34 @@ for d in os.listdir(arg.build):
 	n = d[4:]
 	ff = f'{arg.build}/{d}/{n}.fa'
 	gf = f'{arg.build}/{d}/{n}.gff'
-	
+
 	genome = Reader(gff=gf, fasta=ff)
 	chrom = next(genome) # there is only one in a gene build
 	if len(chrom.seq) > arg.seqlen: continue # short genes only in apc
-	
+
 	for gene in chrom.ftable.build_genes():
-		
+
 		# sanity checks
 		if len(gene.transcripts()) == 0: continue # skip ncRNAs
 		if gene.issues: continue                  # skip oddities
-		
+
 		# intron counts
 		ints = 0
 		for tx in gene.transcripts():
 			if len(tx.introns) > ints: ints = len(tx.introns)
 		if ints == 0: continue # need at least 1 intron (what if...)
-		
+
 		# expression
 		maxexp = 0
 		for f in chrom.ftable.features:
 			if f.source == 'RNASeq_splice' and f.score > maxexp:
 				maxexp = int(f.score)
 		if maxexp < arg.rnaseq: continue
-		
+
 		# isoform counts
 		dons, accs = gtag_sites(chrom.seq, arg.flank, arg.elen)
-		if len(dons) > 30: continue
-		isos = isoforms(chrom.seq, dons, accs, arg.splices, arg.ilen, arg.elen, arg.flank)
+		isos = isoforms(chrom.seq, dons, accs, arg.splices, arg.ilen, arg.elen,
+			arg.flank)
 		if isos > arg.isoforms: continue
 
 		print(f'{chrom.name}\t{len(chrom.seq)}\t{ints}\t{maxexp}\t{isos}\t')
