@@ -44,3 +44,7 @@ Then make the full region build. This takes about 80 min and 4G RAM.
 
 	time haman --fasta build/c_elegans.PRJNA13758.WS282.genomic.fa.gz --gff build/c_elegans.PRJNA13758.WS282.annotations.gff3.gz --out build/region --segment region
 
+
+## Notes ##
+
+for some weird reason there are a few genes that come through the build but have no genes in them. These are gene33805 and gene33806
