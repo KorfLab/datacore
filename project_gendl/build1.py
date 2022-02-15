@@ -41,5 +41,5 @@ for d in os.listdir(arg.build_dir):
 
 	# introns
 	for intron in tx.introns:
-		ifp.write(f'{tx.id} {exp}\n{intron.seq_str()}\n')
+		ifp.write(f'>{tx.id} {exp}\n{intron.seq_str()}\n')
 
