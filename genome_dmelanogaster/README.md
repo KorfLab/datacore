@@ -40,24 +40,18 @@ Creating a stripped-down GFF. This converts exon_junction to RNASeq_splice among
 
 ## 1% builds ##
 
-The mini build for testing purposes	
+The mini build for testing purposes
 
-	haman --fasta build/r6.42.fa --gff build/r6.42.gff3 --out 1pct --segment percent --pct 1
+	haman build/r6.42.fa build/r6.42.gff3 pct 1pct --pct 1
 
 The mini gene build
 
-	haman --fasta 1pct.fa --gff 1pct.gff3 --out build/mini_gene --segment gene
+	haman 1pct.fa 1pct.gff3 pcg build/mini_gene
 
-The mini region build
-
-	haman --fasta 1pct.fa --gff 1pct.gff3 --out build/mini_region --segment region
 
 ## Full builds ##
 
-Gene build takes about 10.5 min and 2G RAM.
+Gene build takes about 6 min and 2G RAM.
 
-	time haman --fasta build/r6.42.fa --gff build/r6.42.gff3 --out build/genes --segment gene
+	time haman build/r6.42.fa build/r6.42.gff3 pcg build/genes
 
-Region build takes about 6.5 min and 2G RAM.
-
-	time haman --fasta build/r6.42.fa --gff build/r6.42.gff3 --out build/regions --segment region

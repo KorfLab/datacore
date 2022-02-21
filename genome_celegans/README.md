@@ -6,7 +6,8 @@ Build process for C. elegans genome
 ## WS282 ##
 
 WS282 is the release used by AlphaFold, so it makes sense to use this as our
-standard for a while. Download the genome and gff3 files and move them to the build directory.
+standard for a while. Download the genome and gff3 files and move them to the
+build directory.
 
 	mkdir genome_celegans/build
 
@@ -21,30 +22,22 @@ First, make a stripped down version of the gff that contains the WormBase genes 
 
 Now make the 1% build with `haman` (from grimoire).
 
-	haman --fasta build/c_elegans.PRJNA13758.WS282.genomic.fa.gz --gff build/ws282.gff3 --out 1pct_elegans --segment percent --pct 1
+	haman build/c_elegans.PRJNA13758.WS282.genomic.fa.gz build/ws282.gff3 pct 1pct_elegans --pct 1
 
-## gene build ##
+## Protein-coding gene build ##
 
-For gene-centric studies, it's useful to have just the sequence around a specific gene. Chromosomes are just too big to work with. The first step is to make a miniature gene build for testing purposes.
+For typical gene-centric studies, it's useful to have just the sequence around
+a specific protein-coding gene. Chromosomes are too big to work with. The first
+step is to make a miniature gene build for testing purposes. This uses the 1
+percent files just created above.
 
-	haman --fasta 1pct_elegans.fa --gff 1pct_elegans.gff --out build/mini_gene --segment gene
+	haman 1pct_elegans.fa 1pct_elegans.gff3 pcg build/mini_gene
 
-Now the full build using the stripped down GFF from the 1% build. This takes about 2.5 hours and 3G RAM on a Linux VM running on a Lenovo Idea Pad 3.
+Now the full build (still using the stripped down GFF). This takes about 45 min
+and 3G RAM on a Linux VM running on a Lenovo Idea Pad 3.
 
-	time haman --fasta build/c_elegans.PRJNA13758.WS282.genomic.fa.gz --gff build/ws282.gff3 --out build/genes --segment gene
-
-
-## region build ##
-
-A region contains several genes in close proximity. The gene build above may end up with some partial genes nearby, but the region build makes sure that all genes are complete. First, make a mini region build for testing and development purposes.
-
-	haman --fasta 1pct_elegans.fa --gff 1pct_elegans.gff --out build/mini_region --segment region
-
-Then make the full region build. This takes about 80 min and 4G RAM.
-
-	time haman --fasta build/c_elegans.PRJNA13758.WS282.genomic.fa.gz --gff build/c_elegans.PRJNA13758.WS282.annotations.gff3.gz --out build/region --segment region
+	time haman build/c_elegans.PRJNA13758.WS282.genomic.fa.gz build/ws282.gff3 pcg build/genes
 
 
 ## Notes ##
 
-for some weird reason there are a few genes that come through the build but have no genes in them. These are gene33805 and gene33806

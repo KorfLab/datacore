@@ -80,25 +80,16 @@ The splice.gff3 file was compressed and saved in the repo because it isn't easil
 
 ## 1% builds ##
 
-The mini build for testing purposes	
+The mini build for testing purposes
 
-	haman --fasta build/genome.fa --gff build/genes.gff3 --out 1pct --segment percent --pct 1
+	haman build/genome.fa build/genes.gff3 pct 1pct --pct 1
 
 The mini gene build
 
-	haman --fasta 1pct.fa --gff 1pct.gff3 --out build/mini_gene --segment gene
-
-The mini region build
-
-	haman --fasta 1pct.fa --gff 1pct.gff3 --out build/mini_region --segment region
+	haman 1pct.fa 1pct.gff3 pcg build/mini_gene
 
 ## Full builds ##
 
-Gene build takes about 67 min and 1.6G RAM.
+Gene build takes about 60 min and 1.6G RAM.
 
-	time haman --fasta build/genome.fa --gff build/genes.gff3 --out build/genes --segment gene
-
-Region build takes a little less time.
-
-	time haman --fasta build/genome.fa --gff build/genes.gff3 --out build/regions --segment region
-
+	time haman build/genome.fa build/genes.gff3 pcg build/genes

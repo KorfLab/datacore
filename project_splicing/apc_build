@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 
 import argparse
-import itertools
+import glob
 import os
+import re
+import subprocess
 import sys
 
 from grimoire.genome import Reader
-from isoform import short_intron, short_exon, gtag_sites
 
 
 #######
@@ -31,6 +32,8 @@ parser.add_argument('--flank', type=int, metavar='<int>', default=99,
 	required=False, help='genomic flank length')
 parser.add_argument('--isoforms', type=int, metavar='<int>', default=1000000,
 	required=False, help='maximum number of isoforms')
+parser.add_argument('--program', type=str, metavar='<str>',
+	default='isocounter', required=False, help='isoform counting program')
 arg = parser.parse_args()
 
 
@@ -38,40 +41,33 @@ arg = parser.parse_args()
 # Functions #
 #############
 
-# adapted from isoform.py for counts only
+def isoforms(seq, maxs, minin, minex, flank):
+	stuff = subprocess.run([arg.program, seq, '--max_splice', str(maxs),
+		'--min_intron', str(minin), '--min_exon', str(minex),
+		'--flank', str(flank)], capture_output=True, text=True).stdout
+	f = stuff.split()
+	return int(f[5])
 
-def isoforms(seq, dons, accs, maxs, minin, minex, flank):
-	total = 0 # number of isoforms found
-	sites = min(len(dons), len(accs), maxs)
-	for n in range(1, sites+1):
-		for dsites in itertools.combinations(dons, n):
-			for asites in itertools.combinations(accs, n):
-				if short_intron(dsites, asites, minin): continue
-				if short_exon(dsites, asites, len(seq), flank, minex): continue
-				total += 1
-	return total
-
+subprocess.run(['ls', '-l'], capture_output=True, text=True).stdout
 
 ########
 # Main #
 ########
 
 print('# id\tlength\tintrons\tRNAseq\tisoforms')
-
-for d in os.listdir(arg.build):
-	n = d[4:]
-	ff = f'{arg.build}/{d}/{n}.fa'
-	gf = f'{arg.build}/{d}/{n}.gff'
+debug = 0
+for ff in glob.glob(f'{arg.build}/*.fa'):
+	gf = ff[:-2] + 'gff3'
 
 	genome = Reader(gff=gf, fasta=ff)
 	chrom = next(genome) # there is only one in a gene build
 	if len(chrom.seq) > arg.seqlen: continue # short genes only in apc
 
-	for gene in chrom.ftable.build_genes():
-
-		# sanity checks
-		if len(gene.transcripts()) == 0: continue # skip ncRNAs
-		if gene.issues: continue                  # skip oddities
+	for gene in chrom.ftable.build_genes(): # could be non-coding stuff
+		if not gene.is_coding(): continue
+		if gene.issues:
+			print('requires genes without issues')
+			sys.exit(1)
 
 		# intron counts
 		ints = 0
@@ -87,11 +83,7 @@ for d in os.listdir(arg.build):
 		if maxexp < arg.rnaseq: continue
 
 		# isoform counts
-		dons, accs = gtag_sites(chrom.seq, arg.flank, arg.elen)
-		isos = isoforms(chrom.seq, dons, accs, arg.splices, arg.ilen, arg.elen,
-			arg.flank)
+		isos = isoforms(ff, arg.splices, arg.ilen, arg.elen, arg.flank)
 		if isos > arg.isoforms: continue
 
 		print(f'{chrom.name}\t{len(chrom.seq)}\t{ints}\t{maxexp}\t{isos}\t')
-
-
