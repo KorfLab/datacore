@@ -1,12 +1,3 @@
-
-
-Building a new DB, current time: 02/24/2022 18:59:56
-New DB name:   /home/azhang/datacore/scripts/exons1.fa
-New DB title:  exons1.fa
-Sequence type: Nucleotide
-Keep MBits: T
-Maximum file size: 1000000000B
-Adding sequences from FASTA; added 43959 sequences in 1.646 seconds.
 Transcript:K09D9.6.1
 Transcript:C17E7.1.1
 Transcript:C41G6.3.1
