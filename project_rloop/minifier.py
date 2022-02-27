@@ -1,7 +1,7 @@
 import sys
 import gzip
 
-limit = 1000000
+limit = 3000000
 
 for file in sys.argv[1:]:
 	with gzip.open(file, 'rt') as fp:

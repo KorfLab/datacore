@@ -25,8 +25,8 @@ saving inside this repo (the original files are large).
 
 	python3 minifier.py build/H*.gz
 
-This creates the following files, which contain up to the first megabase of
-chromosome 1.
+This creates the following files, which contain up to the first 3 megabases of
+chromosome 1 (approximately 0.001 of the genome).
 
 ```
 LS61A.rep1.neg.wig
