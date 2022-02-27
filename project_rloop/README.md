@@ -39,6 +39,8 @@ RNaseH.neg.wig
 RNaseH.pos.wig
 ```
 
+These are in their compressed forms in the repo.
+
 ## Controls and the Blacklist ##
 
 If you look in the RNAseH controls, you will see some loud signal in one part.
@@ -67,14 +69,14 @@ appear as peaks in RNaseH because digestion may be incomplete.
 ## bed2numbers.py ##
 
 It is anticipated that we will be using the coverage values for finding rloops.
-THe `bed2numbers.py` takes in bed files and converts them to a stream of
+The `bed2numbers.py` takes in bed files and converts them to a stream of
 numbers. The following is NOT RECOMMENDED.
 
-	python3 python3 bed2numbers.py LS61A.rep1.neg.wig
+	python3 python3 bed2numbers.py LS61A.rep1.neg.wig > whatever
 
-The starting file is 69k while the output is 8.6M. There are vast empty regions
-in the bed file. Instead, segment the bed file into regions with and without
-data. There is no point filling in the first 10k values with zeros, for example.
+This inflates the file size by over 100x. There are vast empty regions in the
+bed file. Instead, segment the bed file into regions with and without data.
+There is no point filling in the first 10k values with zeros, for example.
 
 ## To Do ##
 
