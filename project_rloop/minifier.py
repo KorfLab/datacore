@@ -7,9 +7,9 @@ for file in sys.argv[1:]:
 	with gzip.open(file, 'rt') as fp:
 		words = file.split('_')
 		if words[2] == 'WT':
-			out = f'{words[3]}.{words[4]}.{words[5][:3]}.wig'
+			out = f'{words[3]}.{words[4]}.{words[5][:3]}.bg'
 		else:
-			out = f'{words[2]}.{words[3][:3]}.wig'
+			out = f'{words[2]}.{words[3][:3]}.bg'
 		ofp = open(out, 'w')
 		while True:
 			line = fp.readline()
