@@ -26,17 +26,19 @@ saving inside this repo (the original files are large).
 	python3 minifier.py build/H*.gz
 
 This creates the following files, which contain up to the first 3 megabases of
-chromosome 1 (approximately 0.001 of the genome).
+chromosome 1 (approximately 0.001 of the genome). The `.bg` file extension shows
+tthat these are bedGraph file types (not the wig shown in the previous file
+name).
 
 ```
-LS61A.rep1.neg.wig
-LS61A.rep1.pos.wig
-LS61C.rep2.neg.wig
-LS61C.rep2.pos.wig
-LS61H.rep3.neg.wig
-LS61H.rep3.pos.wig
-RNaseH.neg.wig
-RNaseH.pos.wig
+LS61A.rep1.neg.bg
+LS61A.rep1.pos.bg
+LS61C.rep2.neg.bg
+LS61C.rep2.pos.bg
+LS61H.rep3.neg.bg
+LS61H.rep3.pos.bg
+RNaseH.neg.bg
+RNaseH.pos.bg
 ```
 
 These are in their compressed forms in the repo.
