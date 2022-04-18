@@ -1,14 +1,22 @@
 Splicing
 ========
 
+The build procedure needs a slight re-write with the criteria below. There 
+should also be a file that reports how many pass and fail at each point.
+
 ## APC Build ##
 
 + Short genes < 1200 bp for the chromosomal region (<1000 bp transcript)
-+ Highly expressed region: RNASeq_splice > 100,000
 + Contain at least 1 intron in transcript
-+ Protein-coding and no weird issues
-+ No really short introns or exon
-+ Not too many isoforms (1M max)
++ No non-canonical features
+	+ Splice sites
+	+ Intron lengths
+	+ Exon lengths
+	+ Other issues
++ Highly expressed region: RNASeq_splice > 100,000
++ Have a single annotated isoform (no argument about which one is canonical)
++ Have no non-coding genes embedded inside
+
 + These criteria are the defaults in `apc_build`
 
 Requires doing a C.elegans gene build
