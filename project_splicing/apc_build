@@ -19,21 +19,22 @@ parser = argparse.ArgumentParser(
 parser.add_argument('build', type=str, metavar='<build>',
 	help='path to gene build directory (e.g. ../genome_celegans/build/genes)')
 parser.add_argument('--seqlen', type=int, metavar='<int>', default=1200,
-	required=False, help='maximum sequence length')
+	required=False, help='maximum sequence length [%(default)i]')
 parser.add_argument('--rnaseq', type=int, metavar='<int>', default=100000,
-	required=False, help='minimum RNAseq value')
+	required=False, help='minimum RNAseq value [%(default)i]')
 parser.add_argument('--splices', type=int, metavar='<int>', default=3,
-	required=False, help='maximum number of splices per transcript')
+	required=False, help='maximum number of splices per tx [%(default)i]')
 parser.add_argument('--ilen', type=int, metavar='<int>', default=35,
-	required=False, help='minimum intron length')
+	required=False, help='minimum intron length [%(default)i]')
 parser.add_argument('--elen', type=int, metavar='<int>', default=25,
-	required=False, help='minimum exon length')
+	required=False, help='minimum exon length [%(default)i]')
 parser.add_argument('--flank', type=int, metavar='<int>', default=99,
-	required=False, help='genomic flank length')
+	required=False, help='genomic flank length [%(default)i]')
 parser.add_argument('--isoforms', type=int, metavar='<int>', default=1000000,
-	required=False, help='maximum number of isoforms')
+	required=False, help='maximum number of isoforms [%(default)i]')
 parser.add_argument('--program', type=str, metavar='<str>',
-	default='isocounter', required=False, help='isoform counting program')
+	default='isocounter', required=False,
+	help='isoform counting program [%(default)s]')
 arg = parser.parse_args()
 
 
@@ -69,11 +70,21 @@ for ff in glob.glob(f'{arg.build}/*.fa'):
 			print('requires genes without issues')
 			sys.exit(1)
 
-		# intron counts
+		# introns
 		ints = 0
 		for tx in gene.transcripts():
 			if len(tx.introns) > ints: ints = len(tx.introns)
 		if ints == 0: continue # need at least 1 intron (what if...)
+
+		# min exon & intron
+		too_short = False
+		for tx in gene.transcripts():
+			for exon in tx.exons:
+				if exon.length < arg.elen: too_short = True
+			for intron in tx.introns:
+				if intron.length < arg.ilen: too_short = True
+		if too_short: continue
+
 
 		# expression
 		maxexp = 0
