@@ -2,6 +2,7 @@
 
 import argparse
 import glob
+import json
 import os
 import re
 import subprocess
@@ -51,50 +52,109 @@ def isoforms(seq, maxs, minin, minex, flank):
 
 subprocess.run(['ls', '-l'], capture_output=True, text=True).stdout
 
+################
+# Output Files # they are named :(
+################
+
+gfh = open("apc.genes.txt", "w")
+lfh = open("apc.log.json", "w")
+
 ########
 # Main #
 ########
 
-print('# id\tlength\tintrons\tRNAseq\tisoforms')
+gfh.write('# id\tlength\tintrons\tRNAseq\tisoforms\n')
+
+log = {
+	'long_gene': 0,
+	'multiple_isoforms': 0,
+	'no_introns': 0,
+	'low_expression': 0,
+	'short_intron': 0,
+	'short_exon': 0,
+	'nc_gene': 0,
+	'too_many_isos': 0,
+	'kept_genes': 0,
+}
+
 debug = 0
 for ff in glob.glob(f'{arg.build}/*.fa'):
+	debug += 1
 	gf = ff[:-2] + 'gff3'
 
 	genome = Reader(gff=gf, fasta=ff)
 	chrom = next(genome) # there is only one in a gene build
-	if len(chrom.seq) > arg.seqlen: continue # short genes only in apc
+	
+	# filter 1: gene length (apc uses only very short genes)
+	if len(chrom.seq) > arg.seqlen:
+		log['long_gene'] += 1
+		continue
+	
+	# find the protein-coding gene (as there may be some ncRNA genes in there)
+	gene = None
+	ncgene = False
+	for g in chrom.ftable.build_genes():
+		if g.is_coding():
+			gene = g
+		else:
+			ncgene = True
+	
+	# filter 2: has a single annotated isoform
+	if len(gene.transcripts()) > 1:
+		log['multiple_isoforms'] += 1
+		continue
+	tx = gene.transcripts()[0]
 
-	for gene in chrom.ftable.build_genes(): # could be non-coding stuff
-		if not gene.is_coding(): continue
-		if gene.issues:
-			print('requires genes without issues')
-			sys.exit(1)
+	# filter 3: contain at least 1 intron
+	if len(tx.introns) == 0:
+		log['no_introns'] += 1
+		continue
 
-		# introns
-		ints = 0
-		for tx in gene.transcripts():
-			if len(tx.introns) > ints: ints = len(tx.introns)
-		if ints == 0: continue # need at least 1 intron (what if...)
+	# filter 4: highly expressed
+	maxexp = 0
+	for f in chrom.ftable.features:
+		if f.source == 'RNASeq_splice' and f.score > maxexp:
+			maxexp = int(f.score)
+	if maxexp < arg.rnaseq:
+		log['low_expression'] += 1
+		continue
+	
+	# filter 5: no short introns
+	short_intron = False
+	for intron in tx.introns:
+		if intron.length < arg.ilen:
+			short_intron = True
+			break
+	if short_intron:
+		log['short_intron'] += 1
+		continue
+		
+	# filter 6: no short exons
+	short_exon = False
+	for exon in tx.exons:
+		if exon.length < arg.elen:
+			short_exon = True
+			break
+	if short_exon:
+		log['short_exon'] += 1
+		continue
 
-		# min exon & intron
-		too_short = False
-		for tx in gene.transcripts():
-			for exon in tx.exons:
-				if exon.length < arg.elen: too_short = True
-			for intron in tx.introns:
-				if intron.length < arg.ilen: too_short = True
-		if too_short: continue
+	# filter 7: non-coding RNA gene
+	if ncgene:
+		log['nc_gene'] += 1
+		continue
 
+	# filter 7: isoform counts
+	isos = isoforms(ff, arg.splices, arg.ilen, arg.elen, arg.flank)
+	if isos > arg.isoforms:
+		log['too_many_isos'] += 1
+		continue
+	
+	gfh.write(f'{chrom.name}\t{len(chrom.seq)}\t{len(tx.introns)}\t{maxexp}\t{isos}\n')
+	
+	# made it!
+	log['kept_genes'] += 1
 
-		# expression
-		maxexp = 0
-		for f in chrom.ftable.features:
-			if f.source == 'RNASeq_splice' and f.score > maxexp:
-				maxexp = int(f.score)
-		if maxexp < arg.rnaseq: continue
-
-		# isoform counts
-		isos = isoforms(ff, arg.splices, arg.ilen, arg.elen, arg.flank)
-		if isos > arg.isoforms: continue
-
-		print(f'{chrom.name}\t{len(chrom.seq)}\t{ints}\t{maxexp}\t{isos}\t')
+	#if debug > 100: break
+	
+lfh.write(json.dumps(log, indent=4))

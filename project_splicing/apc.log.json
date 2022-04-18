@@ -1,0 +1,11 @@
+{
+    "long_gene": 14341,
+    "multiple_isoforms": 260,
+    "no_introns": 624,
+    "low_expression": 1644,
+    "short_intron": 0,
+    "short_exon": 2,
+    "nc_gene": 43,
+    "too_many_isos": 303,
+    "kept_genes": 606
+}
