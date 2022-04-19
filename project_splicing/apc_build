@@ -29,6 +29,8 @@ parser.add_argument('--ilen', type=int, metavar='<int>', default=35,
 	required=False, help='minimum intron length [%(default)i]')
 parser.add_argument('--elen', type=int, metavar='<int>', default=25,
 	required=False, help='minimum exon length [%(default)i]')
+parser.add_argument('--imax', type=int, metavar='<int>', default=3,
+	required=False, help='maximum number of introns [%(default)i]')
 parser.add_argument('--flank', type=int, metavar='<int>', default=99,
 	required=False, help='genomic flank length [%(default)i]')
 parser.add_argument('--isoforms', type=int, metavar='<int>', default=1000000,
@@ -69,6 +71,7 @@ log = {
 	'long_gene': 0,
 	'multiple_isoforms': 0,
 	'no_introns': 0,
+	'too_many_introns': 0,
 	'low_expression': 0,
 	'short_intron': 0,
 	'short_exon': 0,
@@ -84,12 +87,12 @@ for ff in glob.glob(f'{arg.build}/*.fa'):
 
 	genome = Reader(gff=gf, fasta=ff)
 	chrom = next(genome) # there is only one in a gene build
-	
+
 	# filter 1: gene length (apc uses only very short genes)
 	if len(chrom.seq) > arg.seqlen:
 		log['long_gene'] += 1
 		continue
-	
+
 	# find the protein-coding gene (as there may be some ncRNA genes in there)
 	gene = None
 	ncgene = False
@@ -98,7 +101,7 @@ for ff in glob.glob(f'{arg.build}/*.fa'):
 			gene = g
 		else:
 			ncgene = True
-	
+
 	# filter 2: has a single annotated isoform
 	if len(gene.transcripts()) > 1:
 		log['multiple_isoforms'] += 1
@@ -110,7 +113,12 @@ for ff in glob.glob(f'{arg.build}/*.fa'):
 		log['no_introns'] += 1
 		continue
 
-	# filter 4: highly expressed
+	# filter 4: too many introns
+	if len(tx.introns) > arg.imax:
+		log['too_many_introns'] += 1
+		continue
+
+	# filter 5: highly expressed
 	maxexp = 0
 	for f in chrom.ftable.features:
 		if f.source == 'RNASeq_splice' and f.score > maxexp:
@@ -118,8 +126,8 @@ for ff in glob.glob(f'{arg.build}/*.fa'):
 	if maxexp < arg.rnaseq:
 		log['low_expression'] += 1
 		continue
-	
-	# filter 5: no short introns
+
+	# filter 6: no short introns
 	short_intron = False
 	for intron in tx.introns:
 		if intron.length < arg.ilen:
@@ -128,8 +136,8 @@ for ff in glob.glob(f'{arg.build}/*.fa'):
 	if short_intron:
 		log['short_intron'] += 1
 		continue
-		
-	# filter 6: no short exons
+
+	# filter 7: no short exons
 	short_exon = False
 	for exon in tx.exons:
 		if exon.length < arg.elen:
@@ -139,22 +147,22 @@ for ff in glob.glob(f'{arg.build}/*.fa'):
 		log['short_exon'] += 1
 		continue
 
-	# filter 7: non-coding RNA gene
+	# filter 8: non-coding RNA gene
 	if ncgene:
 		log['nc_gene'] += 1
 		continue
 
-	# filter 7: isoform counts
+	# filter 9: isoform counts
 	isos = isoforms(ff, arg.splices, arg.ilen, arg.elen, arg.flank)
 	if isos > arg.isoforms:
 		log['too_many_isos'] += 1
 		continue
-	
+
 	gfh.write(f'{chrom.name}\t{len(chrom.seq)}\t{len(tx.introns)}\t{maxexp}\t{isos}\n')
-	
+
 	# made it!
 	log['kept_genes'] += 1
 
 	#if debug > 100: break
-	
+
 lfh.write(json.dumps(log, indent=4))
