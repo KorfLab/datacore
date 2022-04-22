@@ -16,8 +16,8 @@ from grimoire.genome import Reader
 
 parser = argparse.ArgumentParser(
 	description='dataset builder for apc algorithm')
-parser.add_argument('build', type=str, metavar='<build>',
-	help='path to gene build directory (e.g. ../genome_celegans/build/genes)')
+parser.add_argument('genes', type=str, metavar='<genes dir>',
+	help='path to gene build directory')
 parser.add_argument('--seqlen', type=int, metavar='<int>', default=1200,
 	required=False, help='maximum sequence length [%(default)i]')
 parser.add_argument('--rnaseq', type=int, metavar='<int>', default=100000,
@@ -69,6 +69,7 @@ log = {
 	'total_gene_regions': 0,
 	'multiple_genes': 0,
 	'poorly_expressed': 0,
+	'no_introns': 0,
 	'non_canonical': 0,
 	'gene_too_long': 0,
 	'too_many_introns': 0,
@@ -76,7 +77,7 @@ log = {
 	'kept_genes': 0,
 }
 
-for ff in glob.glob(f'{arg.build}/*.fa'):
+for ff in glob.glob(f'{arg.genes}/*.fa'):
 	gf = ff[:-2] + 'gff3'
 
 	genome = Reader(gff=gf, fasta=ff)
@@ -89,6 +90,8 @@ for ff in glob.glob(f'{arg.build}/*.fa'):
 	genes = len([None for f in chrom.ftable.features if f.type == 'gene'])
 	if genes > 1:
 		log['multiple_genes'] += 1
+		print('M', end='', file=sys.stderr)
+		sys.stderr.flush()
 		continue
 		
 	##########
@@ -100,12 +103,26 @@ for ff in glob.glob(f'{arg.build}/*.fa'):
 			maxexp = int(f.score)
 	if maxexp < arg.rnaseq:
 		log['poorly_expressed'] += 1
+		print('P', end='', file=sys.stderr)
+		sys.stderr.flush()
 		continue
 	
 	gene = chrom.ftable.build_genes()[0] # the one true gene
 	
 	##########
-	# filter 3: not weird (see grimoire defaults for gene build)
+	# filter 3: has intron
+	##########
+	max_introns = 0
+	for tx in gene.transcripts():
+		if len(tx.introns) > max_introns: max_introns = len(tx.introns)
+	if max_introns == 0:
+		log['no_introns'] += 1
+		print('0', end='', file=sys.stderr)
+		sys.stderr.flush()
+		continue
+		
+	##########
+	# filter 4: not weird (see grimoire defaults for gene build)
 	##########
 	weird = False
 	for tx in gene.transcripts():
@@ -114,17 +131,21 @@ for ff in glob.glob(f'{arg.build}/*.fa'):
 			break
 	if weird:
 		log['non_canonical'] += 1
+		print('W', end='', file=sys.stderr)
+		sys.stderr.flush()
 		continue
 	
 	##########
-	# filter 4: too long
+	# filter 5: too long
 	##########
 	if len(chrom.seq) > arg.seqlen:
 		log['gene_too_long'] += 1
+		print('L', end='', file=sys.stderr)
+		sys.stderr.flush()
 		continue
 	
 	##########
-	# filter 5: too many introns
+	# filter 6: too many introns
 	##########
 	many_introns = False
 	for tx in gene.transcripts():
@@ -133,14 +154,18 @@ for ff in glob.glob(f'{arg.build}/*.fa'):
 			break
 	if many_introns:
 		log['too_many_introns'] += 1
+		print('I', end='', file=sys.stderr)
+		sys.stderr.flush()
 		continue
 	
 	##########
-	# filter 6: too many isoforms
+	# filter 7: too many isoforms
 	##########
 	isos = isoforms(ff, arg.splices, arg.ilen, arg.elen, arg.flank)
 	if isos > arg.isoforms:
 		log['too_many_isoforms'] += 1
+		print('N', end='', file=sys.stderr)
+		sys.stderr.flush()
 		continue
 	
 	##########

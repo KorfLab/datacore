@@ -25,12 +25,11 @@ Requires doing a C.elegans gene build with --issuesok
 	gunzip -c gff3.gz | grep -E "WormBase|RNASeq" > ws282.gff3
 	cd ..
 	haman build/genome.gz build/ws282.gff3 pcg genes --issuesok
+	./apc_build build/genes
 
 2 new files: `apc.genes.txt` and `apc.log.json`
 
-	cd ..
 	mkdir apc
 	perl gather.pl apc.genes.txt
 	tar -zcf apc.tar.gz apc
-	rm -rf apc
-
+	mv apc build
