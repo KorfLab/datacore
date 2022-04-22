@@ -1,5 +1,5 @@
 
-my $root = "../genome_celegans/build/genes";
+my $root = "build/genes";
 while (<>) {
 	next if /^#/;
 	my ($id) = split;

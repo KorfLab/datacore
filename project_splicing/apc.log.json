@@ -1,12 +1,10 @@
 {
-    "long_gene": 14341,
-    "multiple_isoforms": 260,
-    "no_introns": 624,
-    "too_many_introns": 107,
-    "low_expression": 1564,
-    "short_intron": 0,
-    "short_exon": 2,
-    "nc_gene": 42,
-    "too_many_isos": 284,
-    "kept_genes": 599
+    "total_gene_regions": 20326,
+    "multiple_genes": 4037,
+    "poorly_expressed": 9813,
+    "non_canonical": 649,
+    "gene_too_long": 4783,
+    "too_many_introns": 30,
+    "too_many_isoforms": 335,
+    "kept_genes": 679
 }

@@ -10,7 +10,6 @@ import sys
 
 from grimoire.genome import Reader
 
-
 #######
 # CLI #
 #######
@@ -40,7 +39,6 @@ parser.add_argument('--program', type=str, metavar='<str>',
 	help='isoform counting program [%(default)s]')
 arg = parser.parse_args()
 
-
 #############
 # Functions #
 #############
@@ -68,101 +66,92 @@ lfh = open("apc.log.json", "w")
 gfh.write('# id\tlength\tintrons\tRNAseq\tisoforms\n')
 
 log = {
-	'long_gene': 0,
-	'multiple_isoforms': 0,
-	'no_introns': 0,
+	'total_gene_regions': 0,
+	'multiple_genes': 0,
+	'poorly_expressed': 0,
+	'non_canonical': 0,
+	'gene_too_long': 0,
 	'too_many_introns': 0,
-	'low_expression': 0,
-	'short_intron': 0,
-	'short_exon': 0,
-	'nc_gene': 0,
-	'too_many_isos': 0,
+	'too_many_isoforms': 0,
 	'kept_genes': 0,
 }
 
-debug = 0
 for ff in glob.glob(f'{arg.build}/*.fa'):
-	debug += 1
 	gf = ff[:-2] + 'gff3'
 
 	genome = Reader(gff=gf, fasta=ff)
-	chrom = next(genome) # there is only one in a gene build
-
-	# filter 1: gene length (apc uses only very short genes)
-	if len(chrom.seq) > arg.seqlen:
-		log['long_gene'] += 1
+	chrom = next(genome) # there is only one in a pcg build
+	log['total_gene_regions'] += 1
+	
+	##########
+	# filter 1: isolated genes
+	##########
+	genes = len([None for f in chrom.ftable.features if f.type == 'gene'])
+	if genes > 1:
+		log['multiple_genes'] += 1
 		continue
-
-	# find the protein-coding gene (as there may be some ncRNA genes in there)
-	gene = None
-	ncgene = False
-	for g in chrom.ftable.build_genes():
-		if g.is_coding():
-			gene = g
-		else:
-			ncgene = True
-
-	# filter 2: has a single annotated isoform
-	if len(gene.transcripts()) > 1:
-		log['multiple_isoforms'] += 1
-		continue
-	tx = gene.transcripts()[0]
-
-	# filter 3: contain at least 1 intron
-	if len(tx.introns) == 0:
-		log['no_introns'] += 1
-		continue
-
-	# filter 4: too many introns
-	if len(tx.introns) > arg.imax:
-		log['too_many_introns'] += 1
-		continue
-
-	# filter 5: highly expressed
+		
+	##########
+	# filter 2: plentiful splicing data
+	##########
 	maxexp = 0
 	for f in chrom.ftable.features:
 		if f.source == 'RNASeq_splice' and f.score > maxexp:
 			maxexp = int(f.score)
 	if maxexp < arg.rnaseq:
-		log['low_expression'] += 1
+		log['poorly_expressed'] += 1
 		continue
-
-	# filter 6: no short introns
-	short_intron = False
-	for intron in tx.introns:
-		if intron.length < arg.ilen:
-			short_intron = True
+	
+	gene = chrom.ftable.build_genes()[0] # the one true gene
+	
+	##########
+	# filter 3: not weird (see grimoire defaults for gene build)
+	##########
+	weird = False
+	for tx in gene.transcripts():
+		if tx.issues:
+			weird = True
 			break
-	if short_intron:
-		log['short_intron'] += 1
+	if weird:
+		log['non_canonical'] += 1
 		continue
-
-	# filter 7: no short exons
-	short_exon = False
-	for exon in tx.exons:
-		if exon.length < arg.elen:
-			short_exon = True
+	
+	##########
+	# filter 4: too long
+	##########
+	if len(chrom.seq) > arg.seqlen:
+		log['gene_too_long'] += 1
+		continue
+	
+	##########
+	# filter 5: too many introns
+	##########
+	many_introns = False
+	for tx in gene.transcripts():
+		if len(tx.introns) > arg.imax:
+			many_introns = True
 			break
-	if short_exon:
-		log['short_exon'] += 1
+	if many_introns:
+		log['too_many_introns'] += 1
 		continue
-
-	# filter 8: non-coding RNA gene
-	if ncgene:
-		log['nc_gene'] += 1
-		continue
-
-	# filter 9: isoform counts
+	
+	##########
+	# filter 6: too many isoforms
+	##########
 	isos = isoforms(ff, arg.splices, arg.ilen, arg.elen, arg.flank)
 	if isos > arg.isoforms:
-		log['too_many_isos'] += 1
+		log['too_many_isoforms'] += 1
 		continue
-
-	gfh.write(f'{chrom.name}\t{len(chrom.seq)}\t{len(tx.introns)}\t{maxexp}\t{isos}\n')
-
+	
+	##########
 	# made it!
+	##########
 	log['kept_genes'] += 1
-
-	#if debug > 100: break
+	gfh.write(f'{chrom.name}\t{len(chrom.seq)}\t{len(tx.introns)}\t{maxexp}\t{isos}\n')
+	
+	# debug
+	#if debug > 999: break
 
 lfh.write(json.dumps(log, indent=4))
+
+

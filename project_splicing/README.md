@@ -16,18 +16,21 @@ APC Build
 
 These criteria above are the defaults in `apc_build`
 
-Requires doing a C.elegans gene build
+Requires doing a C.elegans gene build with --issuesok
 
-	./apc_build ../genome_celegans/build/genes
+	mkdir build
+	cd build
+	ln -s $DATA/c_elegans.PRJNA13758.WS282.genomic.fa.gz genome.gz
+	ln -s $DATA/c_elegans.PRJNA13758.WS282.annotations.gff3.gz gff3.gz 
+	gunzip -c gff3.gz | grep -E "WormBase|RNASeq" > ws282.gff3
+	cd ..
+	haman build/genome.gz build/ws282.gff3 pcg genes --issuesok
 
-This creates 2 files: `apc.genes.txt` and `apc.log.json`
+2 new files: `apc.genes.txt` and `apc.log.json`
 
+	cd ..
 	mkdir apc
 	perl gather.pl apc.genes.txt
 	tar -zcf apc.tar.gz apc
 	rm -rf apc
 
-Stuff
------
-
-The `grapher.py` is a draft of an idea whose output is in `example.svg`.
