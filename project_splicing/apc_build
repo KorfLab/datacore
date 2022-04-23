@@ -68,8 +68,8 @@ gfh.write('# id\tlength\tintrons\tRNAseq\tisoforms\n')
 log = {
 	'total_gene_regions': 0,
 	'multiple_genes': 0,
-	'poorly_expressed': 0,
 	'no_introns': 0,
+	'poorly_expressed': 0,
 	'non_canonical': 0,
 	'gene_too_long': 0,
 	'too_many_introns': 0,
@@ -93,24 +93,11 @@ for ff in glob.glob(f'{arg.genes}/*.fa'):
 		print('M', end='', file=sys.stderr)
 		sys.stderr.flush()
 		continue
-		
-	##########
-	# filter 2: plentiful splicing data
-	##########
-	maxexp = 0
-	for f in chrom.ftable.features:
-		if f.source == 'RNASeq_splice' and f.score > maxexp:
-			maxexp = int(f.score)
-	if maxexp < arg.rnaseq:
-		log['poorly_expressed'] += 1
-		print('P', end='', file=sys.stderr)
-		sys.stderr.flush()
-		continue
 	
 	gene = chrom.ftable.build_genes()[0] # the one true gene
 	
 	##########
-	# filter 3: has intron
+	# filter 2: has intron
 	##########
 	max_introns = 0
 	for tx in gene.transcripts():
@@ -120,7 +107,27 @@ for ff in glob.glob(f'{arg.genes}/*.fa'):
 		print('0', end='', file=sys.stderr)
 		sys.stderr.flush()
 		continue
-		
+	
+	##########
+	# filter 3: plentiful splicing data matching the introns
+	##########
+	introns = {}
+	for tx in gene.transcripts():
+		for intron in tx.introns:
+			sig = (intron.beg, intron.end)
+			if sig not in introns: introns[sig] = True
+	
+	maxexp = 0
+	for f in chrom.ftable.features:
+		sig = (f.beg, f.end)
+		if f.source == 'RNASeq_splice' and sig in introns and f.score > maxexp:
+			maxexp = int(f.score)
+	if maxexp < arg.rnaseq:
+		log['poorly_expressed'] += 1
+		print('P', end='', file=sys.stderr)
+		sys.stderr.flush()
+		continue
+	
 	##########
 	# filter 4: not weird (see grimoire defaults for gene build)
 	##########
