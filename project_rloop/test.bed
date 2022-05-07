@@ -1,0 +1,34 @@
+# file assumes w=5 d=5
+
+# region too short
+chr1	1	5	1
+
+# region has no counts >= d
+chr1	100	120	1
+
+# region has counts >= d, but no window >= d
+chr1	200	210	1
+chr1	210	215	9
+chr1	215	230	1
+
+# region has a single window
+chr1	300	310	1
+chr1	310	320	9
+chr1	320	330	1
+
+# region has more than one window
+#chr1	400	410	1
+#chr1	410	420	9
+#chr1	420	430	1
+#chr1	430	440	9
+#chr1	440	450	1
+# as above, but without padding
+#chr1	500	510	9
+#chr1	510	520	1
+#chr1	520	530	9
+# small dip
+#chr1	500	515	9
+#chr1	515	520	4
+#chr1	520	525	9	
+# switching chromosomes
+#chr2	something
