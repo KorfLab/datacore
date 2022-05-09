@@ -4,6 +4,7 @@ import sys
 
 def find_peaks(chrom, chunk, w, d):
 
+	# create a contiguous array from chunks
 	offset = chunk[0][1]
 	last = chunk[-1][2]
 	cov = [0] * (last - offset)
@@ -13,14 +14,14 @@ def find_peaks(chrom, chunk, w, d):
 			idx = i - offset
 			cov[i-offset] = v
 
-	if len(cov) < w: return None
+	if len(cov) < w: return None # happens sometimes
 
 	# first window
 	win = cov[:w]
 	tot = sum(win)
 	ave[w//2] = tot/w
 
-
+	# other windows
 	for i in range(1, len(cov) -w):
 		lose = cov[i-1]
 		gain = cov[i+w-1]
@@ -28,6 +29,7 @@ def find_peaks(chrom, chunk, w, d):
 		tot += gain
 		ave[i + w//2] = tot/w
 
+	# report peaks
 	beg = 0
 	while True:
 		if beg >= len(ave): break
