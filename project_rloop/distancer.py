@@ -4,6 +4,9 @@ import subprocess
 import sys
 
 # draft, hard-coded version of something...
+# need to consider reverse-complement switch
+# need to do half matrix
+# need argparse
 
 
 def distance(P, Q):
@@ -16,7 +19,7 @@ def distance(P, Q):
 
 W = 100 # window size
 D = 10  # depth
-K = 3   # k-mer size
+K = 2   # k-mer size
 
 
 seq = ''
