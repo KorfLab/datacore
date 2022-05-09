@@ -6,12 +6,12 @@ chr1	1	5	1
 # region has no counts >= d
 chr1	100	120	1
 
-# region has counts >= d, but no window >= d
+# region has a small window with counts >= d
 chr1	200	210	1
 chr1	210	215	9
 chr1	215	230	1
 
-# region has a single window
+# region has a large window with counts >= d
 chr1	300	310	1
 chr1	310	320	9
 chr1	320	330	1

@@ -7,27 +7,40 @@ def find_peaks(chrom, chunk, w, d):
 	offset = chunk[0][1]
 	last = chunk[-1][2]
 	cov = [0] * (last - offset)
+	ave = [0] * (last - offset)
 	for c, b, e, v in chunk:
 		for i in range(b, e):
 			idx = i - offset
 			cov[i-offset] = v
 
-	stopped here, use faster algorithm
-	pbeg = None
-	pend = None
-	for i in range(0, end -w +1):
-		win = cov[i:i+w]
-		ave = sum(win) / w
-		if ave >= d:
-			if pbeg is None and cov[i] >= d: pbeg = i
-			if i+w < len(cov) and cov[i+w] >= d: pend = i+w
+	if len(cov) < w: return None
+
+	# first window
+	win = cov[:w]
+	tot = sum(win)
+	ave[w//2] = tot/w
+
+
+	for i in range(1, len(cov) -w):
+		lose = cov[i-1]
+		gain = cov[i+w-1]
+		tot -= lose
+		tot += gain
+		ave[i + w//2] = tot/w
+
+	beg = 0
+	while True:
+		if beg >= len(ave): break
+		if ave[beg] >= d:
+			end = beg
+			while True:
+				end += 1
+				if ave[end] < d: break
+			ac = sum(ave[beg:end]) / (end - beg +1)
+			yield (chrom, beg+offset, end+offset, ac)
+			beg = end + 1
 		else:
-			if pbeg is not None and pend is not None and pend - pbeg + 1 >= w:
-				yield (chrom, pbeg + offset, pend + offset, ave)
-			pbeg = None
-			pend = None
-	if pbeg is not None and pend is not None and pend - pbeg + 1 >= w:
-		yield (chrom, pbeg + offset, pend + offset, ave)
+			beg += 1
 
 def overlap(peak, blacklist):
 	chrom = peak[0]
@@ -41,12 +54,8 @@ def overlap(peak, blacklist):
 	return 0
 
 def output(peak):
-	print(peak[0], peak[1], peak[2], peak[3])
+	print(peak[0], peak[1], peak[2], f'{peak[3]:.1f}')
 
-"""
-+ Average depth of the window must be >= threshold
-+ Window may be reported at less than W however
-"""
 
 parser = argparse.ArgumentParser(description='Windowing threshold finder')
 parser.add_argument('bed', type=str, metavar='<bedfile>',
@@ -57,7 +66,6 @@ parser.add_argument('--window', required=False, type=int, default=100,
 	metavar='<int>', help='window size [%(default)i]')
 parser.add_argument('--depth', required=False, type=int, default=10,
 	metavar='<int>', help='minimum read depth [%(default)i]')
-#parser.add_argument('--json', action='store_true', help='output in json')
 arg = parser.parse_args()
 
 # get blacklist if there is one
@@ -96,6 +104,7 @@ while True:
 		# finish previous chunk
 		if len(chunk) > 0:
 			for peak in find_peaks(chrom, chunk, arg.window, arg.depth):
+				if peak is None: continue
 				if overlap(peak, blacklist): continue
 				output(peak)
 		# start new chunk
@@ -110,5 +119,6 @@ while True:
 
 # report last chunk
 for peak in find_peaks(chrom, chunk, arg.window, arg.depth):
+	if peak is None: continue
 	if overlap(peak, blacklist): continue
 	output(peak)
