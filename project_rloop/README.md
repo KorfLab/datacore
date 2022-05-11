@@ -85,3 +85,18 @@ There is no point filling in the first 10k values with zeros, for example.
 + Make the data segmenter
 + Find peaks with presti
 
+## distancer ##
+
+The files in `data` were generated like this:
+
+```
+python3 distancer.py /Volumes/XSSD/Data/HumanGenome/hg19.fa.gz /Volumes/XSSD/Data/rloop/BIGWIG/*LS6* --blacklist blacklist.bed --noisy --depth 30 --kmer 5 > w100d30k5p
+
+python3 distancer.py /Volumes/XSSD/Data/HumanGenome/hg19.fa.gz /Volumes/XSSD/Data/rloop/BIGWIG/*LS6* --blacklist blacklist.bed --noisy --depth 30 --kmer 5 --anti > w100d30k5a
+```
+
+And later pasted into a Google sheet
+
+```
+perl tabler.pl w100d30k5* | pbcopy
+```
