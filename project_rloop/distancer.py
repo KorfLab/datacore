@@ -74,6 +74,8 @@ parser.add_argument('--anti', action='store_true',
 	help='count kmers in both directions')
 parser.add_argument('--kld', action='store_true',
 	help='use Kullback-Leibler distance [default is Manhattan]')
+parser.add_argument('--noisy', action='store_true',
+	help='print status messages to stderr]')
 arg = parser.parse_args()
 
 #################
@@ -84,6 +86,7 @@ peaks = {}
 for f in arg.files:
 	cli = f'python3 wtf.py --window {arg.window} --depth {arg.depth} {f}'
 	if arg.blacklist: cli += f' --blacklist {arg.blacklist}'
+	if arg.noisy: print(cli, file=sys.stderr)
 
 	for line in subprocess.run(cli, shell=True, capture_output=True)\
 			.stdout.decode().split('\n'):
@@ -98,6 +101,8 @@ for f in arg.files:
 ###############
 count = {}
 for chrom, seq in read_fasta(arg.fasta):
+	if '_' in chrom: break # not bothering with those weird chroms or MT
+	if arg.noisy: print(f'processing {chrom}', file=sys.stderr)
 	seq = seq.upper()
 	for file in peaks:
 		for beg, end in peaks[file][chrom]:
@@ -105,6 +110,7 @@ for chrom, seq in read_fasta(arg.fasta):
 			if file not in count: count[file] = {}
 			for i in range(0, len(sseq) -arg.kmer +1):
 				kmer = sseq[i:i+arg.kmer]
+				if 'N' in kmer: continue
 				if kmer not in count[file]: count[file][kmer] = 0
 				count[file][kmer] += 1
 			if not arg.anti: continue
@@ -112,6 +118,7 @@ for chrom, seq in read_fasta(arg.fasta):
 			sseq = revcomp(sseq)
 			for i in range(0, len(sseq) -arg.kmer +1):
 				kmer = sseq[i:i+arg.kmer]
+				if 'N' in kmer: continue
 				if kmer not in count[file]: count[file][kmer] = 0
 				count[file][kmer] += 1
 
@@ -130,7 +137,13 @@ if arg.kld: distance = kld
 else:       distance = manhattan
 for i in range(len(arg.files)):
 	f1 = arg.files[i]
+	if f1 not in freq:
+		print(f'{f1} nothing')
+		continue
 	for j in range(i + 1, len(arg.files)):
 		f2 = arg.files[j]
+		if f2 not in freq:
+			print(f'{f2} nothing')
+			continue
 		print(f1, f2, distance(freq[f1], freq[f2]))
 
