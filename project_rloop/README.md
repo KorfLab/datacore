@@ -80,22 +80,34 @@ This inflates the file size by over 100x. There are vast empty regions in the
 bed file. Instead, segment the bed file into regions with and without data.
 There is no point filling in the first 10k values with zeros, for example.
 
-## To Do ##
+## Experiments with distancer ##
 
-+ Make the data segmenter
-+ Find peaks with presti
+How different are positive and negative rloop regions from each other? The rloop
+signal is supposed to be strand-specific. But is it? K-mers should be different
+when compared to each other if you parse just the top strand. However, if you
+count both strands, the k-mers should be similar. Also, the k-mers should be
+similar from different replicates and cell types if the rloops are relatively
+stable.
 
-## distancer ##
++ Find peaks using a simple windowing method
+	+ window size: 100
+	+ depth of reads: 10, 20, 30
++ Extract sequences under peaks
++ Create k-mer tables of subsequences
++ Compare k-mer tables of different cell replicates and cell types
 
 The files in `data` were generated like this:
 
 ```
-python3 distancer.py /Volumes/XSSD/Data/HumanGenome/hg19.fa.gz /Volumes/XSSD/Data/rloop/BIGWIG/*LS6* --blacklist blacklist.bed --noisy --depth 30 --kmer 5 > w100d30k5p
+python3 distancer.py hg19.fa.gz BIGWIG/*LS6* --blacklist blacklist.bed --noisy --depth 30 --kmer 5 > w100d30k5p
 
-python3 distancer.py /Volumes/XSSD/Data/HumanGenome/hg19.fa.gz /Volumes/XSSD/Data/rloop/BIGWIG/*LS6* --blacklist blacklist.bed --noisy --depth 30 --kmer 5 --anti > w100d30k5a
+python3 distancer.py hg19.fa.gz BIGWIG/*LS6* --blacklist blacklist.bed --noisy --depth 30 --kmer 5 --anti > w100d30k5a
 ```
 
-And later pasted into a Google sheet
+Note the the BIGWIG directory is something provided by Stella.
+
+The `tabler.pl` script aggregates a pair of outputs to create a table for
+pasting into a Google Sheet.
 
 ```
 perl tabler.pl w100d30k5* | pbcopy
