@@ -96,15 +96,21 @@ stable.
 + Create k-mer tables of subsequences
 + Compare k-mer tables of different cell replicates and cell types
 
-The files in `data` were generated like this:
+You can run this on the test data as follows:
+
+```
+python3 distancer.py chr1.fa.gz L*gz --noisy
+python3 distancer.py chr1.fa.gz L*gz --noisy --anti
+```
+
+To perform the experiment on the BIGWIG files provided by Stella/Fred, it takes
+about 20 minutes to run.
 
 ```
 python3 distancer.py hg19.fa.gz BIGWIG/*LS6* --blacklist blacklist.bed --noisy --depth 30 --kmer 5 > w100d30k5p
 
 python3 distancer.py hg19.fa.gz BIGWIG/*LS6* --blacklist blacklist.bed --noisy --depth 30 --kmer 5 --anti > w100d30k5a
 ```
-
-Note the the BIGWIG directory is something provided by Stella.
 
 The `tabler.pl` script aggregates a pair of outputs to create a table for
 pasting into a Google Sheet.
