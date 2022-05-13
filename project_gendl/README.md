@@ -26,7 +26,4 @@ are reported only once. In such a case, only one source gene name is given.
 ## Sampling ##
 
 In order to create test/training sets, you have to sample the `eie.txt` file.
-The `gendl_selector` program provides that functionality.
-
-
-
+The `donors.py` program is an example of how to write those scripts.
