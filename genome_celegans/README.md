@@ -13,16 +13,22 @@ build directory.
 
 ## 1 percent build ##
 
-The 1% build is useful when you're developing software and don't want the overhead of working with the whole genome (which is about 99% of the time).
+The 1% build is useful when you're developing software and don't want the
+overhead of working with the whole genome (which is about 99% of the time).
 
-First, make a stripped down version of the gff that contains the WormBase genes along with RNA-seq data. This file will get used a few times.
+First, make a stripped down version of the gff that contains the WormBase genes
+along with RNA-seq data. This file will get used a few times.
 
-	cd genome_celegans
-	gunzip -c build/c_elegans.PRJNA13758.WS282.annotations.gff3.gz | grep -E "WormBase|RNASeq" > build/ws282.gff3
+```
+cd genome_celegans
+gunzip -c build/c_elegans.PRJNA13758.WS282.annotations.gff3.gz | grep -E "WormBase|RNASeq" > build/ws282.gff3
+```
 
 Now make the 1% build with `haman` (from grimoire).
 
-	haman build/c_elegans.PRJNA13758.WS282.genomic.fa.gz build/ws282.gff3 pct 1pct_elegans --pct 1
+```
+haman build/c_elegans.PRJNA13758.WS282.genomic.fa.gz build/ws282.gff3 pct 1pct_elegans --pct 1
+```
 
 ## Protein-coding gene build ##
 
@@ -31,13 +37,16 @@ a specific protein-coding gene. Chromosomes are too big to work with. The first
 step is to make a miniature gene build for testing purposes. This uses the 1
 percent files just created above.
 
-	haman 1pct_elegans.fa 1pct_elegans.gff3 pcg build/mini_gene
+```
+haman 1pct_elegans.fa 1pct_elegans.gff3 pcg build/mini_gene
+```
 
 Now the full build (still using the stripped down GFF). This takes about 45 min
 and 3G RAM on a Linux VM running on a Lenovo Idea Pad 3.
 
-	time haman build/c_elegans.PRJNA13758.WS282.genomic.fa.gz build/ws282.gff3 pcg build/genes
-
+```
+time haman build/c_elegans.PRJNA13758.WS282.genomic.fa.gz build/ws282.gff3 pcg build/genes
+```
 
 ## Notes ##
 
