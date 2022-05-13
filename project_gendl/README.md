@@ -39,8 +39,20 @@ The number of exon-intron-exon lines:
 + 19886 D. melanogaster
 
 
-## Sampling ##
+## Demo ##
 
 In order to create test/training sets, you have to sample the various
 exon-intron-exon files The `donors.py` program is an example of how to write
 those scripts.
+
+## setbuilder ##
+
+This currently re-creates the 42 bp set.
+
+```
+mkdir data
+python3 setbuilder.py
+gzip data/*
+```
+
+Still need to make the negatives and add them to data...
