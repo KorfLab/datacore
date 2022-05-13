@@ -2,7 +2,7 @@ import argparse
 import gzip
 
 parser = argparse.ArgumentParser(
-	description='donor extractor')
+	description='acceptor extractor')
 parser.add_argument('eie', type=str, metavar='<eie>',
 	help='path to exon-intron-exon file')
 parser.add_argument('--exon', type=int, metavar='<int>', default=0,
@@ -14,8 +14,6 @@ arg = parser.parse_args()
 with gzip.open(arg.eie, 'rt') as fp:
 	for line in fp.readlines():
 		(exon1, intron, exon2, expression, gene) = line.split()
-		if arg.exon:
-			print(exon1[-arg.exon:], intron[0:arg.intron], sep='')
-		else:
-			print(intron[0:arg.intron])
-
+		print(intron[-arg.intron:], end='')
+		if arg.exon: print(exon2[0:arg.exon], end='')
+		print()
