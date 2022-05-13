@@ -1,15 +1,11 @@
 Generating Data for gendl
 =========================
 
-To begin, you need a typical `haman` gene build. Assuming that is in a build
-directory called genes, do the following:
+Exon-intron-exon
+----------------
 
-```
-gendl_build build/genes > eie.txt
-```
-
-This outputs an exon-intron-exon file. By default, each line contains
-space-separated values with the following information:
+The main data source is an exon-intron-exon file with the following
+space-delimited line structure:
 
 + 50 nt of exon preceding an intron
 + The entire sequence of the intron (40-150 bp)
@@ -23,7 +19,28 @@ is short (<40) or long-ish (>150) the exon-intron-exon is not reported.
 Duplicate exon-intron-exons from alternative isoforms or closely related genes
 are reported only once. In such a case, only one source gene name is given.
 
+
+Build
+-----
+
+Building exon-intron-exon files for 3 genomes.
+
+```
+./gendl_build ../genome_athaliana/build/genes > eie.at.txt
+./gendl_build ../genome_celegans/build/genes > eie.ce.txt
+./gendl_build ../genome_dmelanogaster/build/genes > eie.dm.txt
+gzip *.txt
+```
+
+The number of exon-intron-exon lines:
+
++ 62804 A. thaliana
++ 53515 C. elegans
++ 19886 D. melanogaster
+
+
 ## Sampling ##
 
-In order to create test/training sets, you have to sample the `eie.txt` file.
-The `donors.py` program is an example of how to write those scripts.
+In order to create test/training sets, you have to sample the various
+exon-intron-exon files The `donors.py` program is an example of how to write
+those scripts.
