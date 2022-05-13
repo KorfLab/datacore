@@ -9,7 +9,9 @@ WS282 is the release used by AlphaFold, so it makes sense to use this as our
 standard for a while. Download the genome and gff3 files and move them to the
 build directory.
 
-	mkdir genome_celegans/build
+```
+mkdir genome_celegans/build
+```
 
 ## 1 percent build ##
 
@@ -17,7 +19,8 @@ The 1% build is useful when you're developing software and don't want the
 overhead of working with the whole genome (which is about 99% of the time).
 
 First, make a stripped down version of the gff that contains the WormBase genes
-along with RNA-seq data. This file will get used a few times.
+along with RNA-seq data. This file will get used a few times. This takes about 3
+minutes.
 
 ```
 cd genome_celegans
@@ -41,12 +44,12 @@ percent files just created above.
 haman 1pct_elegans.fa 1pct_elegans.gff3 pcg build/mini_gene
 ```
 
-Now the full build (still using the stripped down GFF). This takes about 45 min
-and 3G RAM on a Linux VM running on a Lenovo Idea Pad 3.
+Now the full build (still using the stripped down GFF). This takes about an hour
+and 3G RAM. Afterwards remove everything but the `genes` directory and make a
+tar-ball.
 
 ```
-time haman build/c_elegans.PRJNA13758.WS282.genomic.fa.gz build/ws282.gff3 pcg build/genes
+haman build/c_elegans.PRJNA13758.WS282.genomic.fa.gz build/ws282.gff3 pcg build/genes
+#rm build/...
+tar -zcf genes.tar.gz build
 ```
-
-## Notes ##
-
