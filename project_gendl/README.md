@@ -50,9 +50,8 @@ those scripts.
 This currently re-creates the 42 bp set.
 
 ```
-mkdir data
+mkdir data42
 python3 setbuilder.py
-gzip data/*
+gzip data42/*
+mv data42 ~/Code/genDL
 ```
-
-Still need to make the negatives and add them to data...
