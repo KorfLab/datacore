@@ -87,6 +87,19 @@ def make_negative3(seqs):
 		neg.append((s1, s2, s3, x))
 	return neg
 
+def make_negative4(seqs):
+	comp = str.maketrans('ACGTRYMKWSBDHV', 'TGCAYRKMWSVHDB')
+	neg = []
+	with gzip.open(filename, 'rt') as fp:
+		for line in fp.readlines():
+			(exon1, intron, exon2, expression, gene) = line.split()
+			seq = exon1 + intron + exon2
+			anti = seq.translate(comp)[::-1]
+			for i in range(20, len(seq) -20):
+				if anti[i:i+2] == 'GT':
+
+					STOPPED HERE
+
 
 #############
 # 42 nt set # 20 nt upstream and downstream of canonical GT|AG
@@ -120,4 +133,5 @@ for gen in genomes:
 	write_fasta(f'data42/{gen}.n3don.fa', 'n3don', nd)
 	write_fasta(f'data42/{gen}.n3acc.fa', 'n3acc', na)
 
-
+	# negative 4 - sequences from the opposite strand
+	nd, na = make_negative4(eie)
