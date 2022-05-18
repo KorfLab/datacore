@@ -118,3 +118,21 @@ pasting into a Google Sheet.
 ```
 perl tabler.pl w100d30k5* | pbcopy
 ```
+
+## Experiments with 100 bp ##
+
+The goal here is to make segments corresponding to rloops and non-rloops and see
+what kind of discriminators work best (e.g. Markov models or NNs).
+
+The set of observed peaks comes from `K562_DRIPc_WT_LS60A_rep1_pos.bw.wig.gz`.
+Peaks with depths 10, 20, 30, 40, 50.
+
+How similar are the peaks of different depths? Using depth 50 for now.
+
+Negative data.
+
+1. Completely random sequence
+2. GC-biased random sequence
+3. Negative strand rloops
+4. Shuffled rloops
+

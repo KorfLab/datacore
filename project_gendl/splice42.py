@@ -99,25 +99,23 @@ for gen in genomes:
 	eie = f'eie.{gen}.txt.gz'
 	dons = get_donors(eie)
 	accs = get_acceptors(eie)
-	write_fasta(f'data42/{gen}.don.fa', 'don', dons)
-	write_fasta(f'data42/{gen}.acc.fa', 'acc', accs)
+	write_fasta(f'splice42/{gen}.don.fa', 'don', dons)
+	write_fasta(f'splice42/{gen}.acc.fa', 'acc', accs)
 
 	# negative 1 - totally random
 	nd = make_negative1(dons)
 	na = make_negative1(accs)
-	write_fasta(f'data42/{gen}.n1don.fa', 'n1don', nd)
-	write_fasta(f'data42/{gen}.n1acc.fa', 'n1acc', na)
+	write_fasta(f'splice42/{gen}.n1don.fa', 'n1don', nd)
+	write_fasta(f'splice42/{gen}.n1acc.fa', 'n1acc', na)
 
 	# negative 2 - compositional but not positional
 	nd = make_negative2(dons)
 	na = make_negative2(accs)
-	write_fasta(f'data42/{gen}.n2don.fa', 'n2don', nd)
-	write_fasta(f'data42/{gen}.n2acc.fa', 'n2acc', na)
+	write_fasta(f'splice42/{gen}.n2don.fa', 'n2don', nd)
+	write_fasta(f'splice42/{gen}.n2acc.fa', 'n2acc', na)
 
 	# negative 3 - compositional and positional
 	nd = make_negative3(dons)
 	na = make_negative3(accs)
-	write_fasta(f'data42/{gen}.n3don.fa', 'n3don', nd)
-	write_fasta(f'data42/{gen}.n3acc.fa', 'n3acc', na)
-
-
+	write_fasta(f'splice42/{gen}.n3don.fa', 'n3don', nd)
+	write_fasta(f'splice42/{gen}.n3acc.fa', 'n3acc', na)
