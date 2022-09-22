@@ -125,8 +125,9 @@ Preparing data for various experiments
 
 ```
 python3 extract_rloops.py --blacklist blacklist.bed chr1.fa.gz LS61A.rep1.neg.bg.gz > 300.fa
+python3 extract_rloops.py --blacklist blacklist.bed chr1.fa.gz LS61A.rep1.pos.bg.gz > 235.fa
 ```
 
-This produces a file of 300 R-loop sequences. They are converted so that they
-are all on the same strand.
+This produces 2 files of R-loop sequences. The 235 are on the positive strand
+and the 300 are on the negative strand.
 
