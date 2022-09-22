@@ -87,10 +87,12 @@ for line in subprocess.run(cli, shell=True, capture_output=True)\
 ############
 # Get Seqs #
 ############
+sid = 1
 for chrom, seq in read_fasta(arg.fasta):
 	if '_' in chrom: break # not bothering with those weird chroms or MT
 	if arg.noisy: print(f'processing {chrom}', file=sys.stderr)
 	seq = seq.upper()
 	for beg, end in peaks[chrom]:
 		sseq = seq[beg-1:end]
-		print(sseq)
+		print(f'>seq-{sid}\n{sseq}')
+		sid += 1

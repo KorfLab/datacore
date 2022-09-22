@@ -119,20 +119,14 @@ pasting into a Google Sheet.
 perl tabler.pl w100d30k5* | pbcopy
 ```
 
-## Experiments with 100 bp ##
+## Some small test data ##
 
-The goal here is to make segments corresponding to rloops and non-rloops and see
-what kind of discriminators work best (e.g. Markov models or NNs).
+Preparing data for various experiments
 
-The set of observed peaks comes from `K562_DRIPc_WT_LS60A_rep1_pos.bw.wig.gz`.
-Peaks with depths 10, 20, 30, 40, 50.
+```
+python3 extract_rloops.py --blacklist blacklist.bed chr1.fa.gz LS61A.rep1.neg.bg.gz > 300.fa
+```
 
-How similar are the peaks of different depths? Using depth 50 for now.
-
-Negative data.
-
-1. Completely random sequence
-2. GC-biased random sequence
-3. Negative strand rloops
-4. Shuffled rloops
+This produces a file of 300 R-loop sequences. They are converted so that they
+are all on the same strand.
 
