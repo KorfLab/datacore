@@ -76,39 +76,58 @@ parser = argparse.ArgumentParser(
 	description='not sure')
 parser.add_argument('directory', type=str, metavar='<path>',
 	help='path to directory of multi-fasta alignment file')
+parser.add_argument('--key', type=int, required=False, 
+	metavar='<int>', help='key organism id [%(default)i]')
 parser.add_argument('--seqs', type=int, required=False, default=5,
 	metavar='<int>', help='minimum number of sequences [%(default)i]')
 parser.add_argument('--pct', type=float, required=False, default=0.75,
 	metavar='<float>', help='minimum pairwise percent identity [%(default).3f]')
 parser.add_argument('--met', type=float, required=False, default=0.50,
-	metavar='<float>', help='minimum met positioning [%(default).3f]')
+	metavar='<float>', help='minimum met agreement [%(default).3f]')
+parser.add_argument('--off', type=int, required=False, default=3,
+	metavar='<int>', help='minimum met offset [%(default)i]')
+parser.add_argument('--adj', type=int, required=False, default=15,
+	metavar='<int>', help='adjacent sequence to display [%(default)i]')
 arg = parser.parse_args()
 
-orthologs = 0
 for filename in os.listdir(arg.directory):
-	seq = {}
+	seqs = {}
 	for name, s in read_record(f'{arg.directory}/{filename}'):
-		seq[name] = s
-	orthologs += 1
+		seqs[name] = s
 
-	# data cleaning
-	# prune some of the sequences from the MSA?
+	# key species requirement?
+	if arg.key:
+		species = {}
+		for name in seqs:
+			f = name.split('.')
+			species[int(f[0])] = True
+		if arg.key not in species: continue
 
-	# minimum number of sequences
-	num = len(seq)
+	# number of sequences in alignment
+	num = len(seqs)
 	if num < arg.seqs: continue
 	
-	# minimum pairwise percent identity
-	pct = percent_identity(list(seq.values()))
-	if pct < arg.pct: continue
+	# agreement on where the first MET is
+	mets = find_mets(list(seqs.values()))
+	best_pos = next(iter(mets))
+	best_val = mets[best_pos]
+	met_freq = best_val / num
+	if met_freq < arg.met: continue
+	if best_pos < arg.off: continue
 	
-	# minimum agreement on where the first MET is
-	mets = find_mets(list(seq.values()))
-	best = mets[list(mets.keys())[0]]
-	total = sum(list(mets.values()))
-	if best/total < arg.met: continue	
+	# pairwise percent identity
+	pct = percent_identity(list(seqs.values()))
+	if pct < arg.pct: continue	
+	
+	# find the n-terminal outliers
+	marker = ' ' * (best_pos -2)
+	print(filename, pct, num, best_pos, num, best_val)
+	print(marker, '*')
+	for name, seq in seqs.items():
+		print(seq[0:best_pos+15], name)
+	print()
+	
+	
 	
 	# some temporary output
-	print(filename, num, pct, mets)
-
-print(orthologs)
+	
