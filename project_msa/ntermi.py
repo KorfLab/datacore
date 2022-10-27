@@ -33,7 +33,7 @@ def read_record(filename):
 	yield(label, ''.join(seq))
 	fp.close()
 
-def ppi(aas):
+def pairwise(aas):
 	match = 0
 	total = 0
 	for i in range(len(aas)):
@@ -42,7 +42,7 @@ def ppi(aas):
 			total += 1
 	return match, total
 
-def percent_identity(seqs):
+def ppi(seqs):
 	pct = []
 	seqlen = len(seqs[0])
 	match = 0
@@ -53,7 +53,7 @@ def percent_identity(seqs):
 			aa = seqs[j][i]
 			if aa == '-': continue
 			aas.append(aa)
-		m, t = ppi(aas)
+		m, t = pairwise(aas)
 		match += m
 		total += t
 	return match / total
@@ -116,7 +116,7 @@ for filename in os.listdir(arg.directory):
 	if best_pos < arg.off: continue
 	
 	# pairwise percent identity
-	pct = percent_identity(list(seqs.values()))
+	pct = ppi(list(seqs.values()))
 	if pct < arg.pct: continue	
 	
 	# find the n-terminal outliers
@@ -126,8 +126,3 @@ for filename in os.listdir(arg.directory):
 	for name, seq in seqs.items():
 		print(seq[0:best_pos+15], name)
 	print()
-	
-	
-	
-	# some temporary output
-	
