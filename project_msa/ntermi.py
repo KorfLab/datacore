@@ -66,18 +66,18 @@ def find_mets(seqs):
 			pos = len(match.group(1))
 			if pos not in first_met: first_met[pos] = 0
 			first_met[pos] += 1
-	
+
 	first_met = {k: v for k, v in sorted(first_met.items(),
 		key=lambda item: item[1], reverse=True)}
-	
+
 	return first_met
 
 parser = argparse.ArgumentParser(
-	description='not sure')
+	description='some kind of n-terminal analysis program')
 parser.add_argument('directory', type=str, metavar='<path>',
 	help='path to directory of multi-fasta alignment file')
-parser.add_argument('--key', type=int, required=False, 
-	metavar='<int>', help='key organism id [%(default)i]')
+parser.add_argument('--key', type=int, required=False,
+	metavar='<int>', help='key organism id (e.g. 6239)')
 parser.add_argument('--seqs', type=int, required=False, default=5,
 	metavar='<int>', help='minimum number of sequences [%(default)i]')
 parser.add_argument('--pct', type=float, required=False, default=0.75,
@@ -106,7 +106,7 @@ for filename in os.listdir(arg.directory):
 	# number of sequences in alignment
 	num = len(seqs)
 	if num < arg.seqs: continue
-	
+
 	# agreement on where the first MET is
 	mets = find_mets(list(seqs.values()))
 	best_pos = next(iter(mets))
@@ -114,11 +114,11 @@ for filename in os.listdir(arg.directory):
 	met_freq = best_val / num
 	if met_freq < arg.met: continue
 	if best_pos < arg.off: continue
-	
+
 	# pairwise percent identity
 	pct = ppi(list(seqs.values()))
-	if pct < arg.pct: continue	
-	
+	if pct < arg.pct: continue
+
 	# find the n-terminal outliers
 	marker = ' ' * (best_pos -2)
 	print(filename, pct, num, best_pos, num, best_val)
