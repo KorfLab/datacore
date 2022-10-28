@@ -1,0 +1,67 @@
+Name	Type	Comment
+40N4Y	ORF	6239 long(30)
+40IQA	ORF	31234 long(30)
+40R01	ORF	1461998 not very long(9)
+40H6B	ORF	6239 short(9)
+40JFS	?	fusion? alignment isn't very good
+40GJQ	ORF	6239 two longer prots(26)
+40IZG	OK	very short
+40IMC	OK	very short
+40DJ5	ORF	6236 short (6)
+40E9R	ORF	31234 2 longs, gene dup?(41)
+40CPR	?	gene fusion likely
+40BB2	?	really long, gene fusion?
+40I9G	ORF	135651 long(56)
+40GDT	ORF	281687 long(14) and incomplete
+40FI7	?	gene fusion? really long(1005)
+40IIV	ORF	very long though(71)
+40N6U	ORF	several outliers, very deep family
+40K8Q	ORF	6238, short(6)
+40K1J	ORF	31234 long(38)
+40M8W	OK	
+40B60	?	gene fusion?(147)
+40IHW	ORF	31234(21)
+40KMC	ORF	281687(17)
+40D4H	ORF	longish(62)
+40H95	ORF	longish(72)
+40FDS	ORF	long(44)
+40BQ0	ORF	2 long(66)
+40E41	?	2 long(301)
+40BPD	ORF	long(19)
+40HPU	OK
+40EH4	ORF	long(51)
+40J6E	ORF	6239 long(26)
+40JMC	OK
+40INH	?	some long, some short
+40CJ5	OK
+40C69	ORF	6236 long(20)
+40C4S	ORF	6334 long(23)
+40IKV	ORF	6239 long(59) another is long too
+40H5P	ORF	short(5)
+40J6D	ORF	6239 long(<48) 
+40JR8	?	probably ok
+40JBF	ORF	31234 long(30)
+40EJM	?	huge family, lots going on, fusions etc
+40FGR	?	not a good alignment
+40IRP	ORF	long(<69)
+40ISU	ORF	long(27)
+40JJI	ORF	6239 long(35)
+40JUX	ORF	long(16)
+40HP8	ORF	long(38)
+40KX1	ORF	6239 long(<36) not great alignment
+40I66	ORF	long(14)
+40C7R	?	probably ok
+40ECS	ORF	31234(45)
+40K2T	ORF	6238 long(46)
+40FNJ	ORF	31234 long(66)
+40IB1	ORF	long(50)
+40B4A	?	multiple gene fusions?
+40JFX	OK
+40CQS	OK
+40CJB	?	gene fusions?
+40B4N	ORF	6334 long(13)
+40FS8	OK
+40CHX	?	both ORF and fusion?
+40FW7	ORF	31234
+40JI4	?	fusion?
+40DNZ	ORF	6334 long(19)

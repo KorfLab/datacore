@@ -72,12 +72,33 @@ def find_mets(seqs):
 
 	return first_met
 
+def categorize(msa, pos):
+	cats = []
+	for name, seq in msa.items():
+		f = name.split('.')
+		species = int(f[0])
+		left = seq[0:pos]
+		gaps = left.count('-')
+		aas = pos - gaps
+		cat = None
+		if seq[pos] == 'M':
+			if aas > 0:
+				cat = 'ORF' # potential longest-ORF error
+		else:
+			if aas > 0:
+				cat = 'GF' # potential gene fusion error
+		if cat:
+			cats.append({'cat': cat, 'len': aas, 'species': species})
+	return cats
+
 parser = argparse.ArgumentParser(
 	description='some kind of n-terminal analysis program')
 parser.add_argument('directory', type=str, metavar='<path>',
 	help='path to directory of multi-fasta alignment file')
 parser.add_argument('--key', type=int, required=False,
 	metavar='<int>', help='key organism id (e.g. 6239)')
+parser.add_argument('--only', action='store_true',
+	help='only display when key organism is in error')
 parser.add_argument('--seqs', type=int, required=False, default=5,
 	metavar='<int>', help='minimum number of sequences [%(default)i]')
 parser.add_argument('--pct', type=float, required=False, default=0.75,
@@ -120,6 +141,16 @@ for filename in os.listdir(arg.directory):
 	if pct < arg.pct: continue
 
 	# find the n-terminal outliers
+	cats = categorize(seqs, best_pos -1)
+	if len(cats) != 1: continue
+	species = cats[0]['species']
+	length = cats[0]['len']
+	error = cats[0]['cat']
+	
+	if arg.only:
+		if species != arg.key: continue
+	
+	# output
 	marker = ' ' * (best_pos -2)
 	print(filename, pct, num, best_pos, num, best_val)
 	print(marker, '*')
