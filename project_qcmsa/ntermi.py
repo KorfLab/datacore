@@ -155,5 +155,5 @@ for filename in os.listdir(arg.directory):
 	print(filename, pct, num, best_pos, num, best_val)
 	print(marker, '*')
 	for name, seq in seqs.items():
-		print(seq[0:best_pos+15], name)
+		print(seq[0:best_pos+arg.adj], name)
 	print()
