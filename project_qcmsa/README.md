@@ -54,3 +54,6 @@ Ideally, we should be looking for these categories and more.
 
 The `interpretations.txt` file contains a manual analysis of some of the MSAs. 
 This may be removed at some point.
+
+Another file `manual.txt` consists of some more manual analysis of 45 genes
+where C. elegans appears to the the outlier.
