@@ -1,0 +1,51 @@
+O	40JA6.raw_alg.faa.gz 0.9666666666666667 5 9 5 4 ZK1073.2 longest ORF, added rare 5' exon
+?	40JGT.raw_alg.faa.gz 0.8869137153015179 7 11 7 6 col-123 ORF in the middle going the wrong way?
+K	40K94.raw_alg.faa.gz 0.7549019607843137 6 7 6 3 maybe ok
+O	40KUE.raw_alg.faa.gz 0.8318683795357223 8 23 8 7 F17E9.5 longest ORF
+O	40FGR.raw_alg.faa.gz 0.7522229279136233 8 11 8 4 C24A3.1 longest ORF
+O	40EV6.raw_alg.faa.gz 0.8514625228519196 8 49 8 4 R12C12.6a longest ORF, may grab extra exon
+O	40JKK.raw_alg.faa.gz 0.7808514162663575 7 24 7 4 W05B2.7 legacy gene, now fused with another, but RNA-seq data doesn't corroborate, contacted wormbase
+O	40J6Y.raw_alg.faa.gz 0.8279831387808041 6 40 6 5 T05E7.1 longest ORF
+K	40IW4.raw_alg.faa.gz 0.7536231884057971 7 3 7 4 probably ok
+O	40KX1.raw_alg.faa.gz 0.8343989769820972 6 36 6 3 Y37F4.8 longest ORF
+K	40IQ0.raw_alg.faa.gz 0.8400318344608039 5 4 5 3 probably ok
+O	40JTP.raw_alg.faa.gz 0.7542988154375239 5 66 5 4 C56A3.7a longest ORF
+O	40II1.raw_alg.faa.gz 0.9178240740740741 6 50 6 5 D2023.3 longest ORF, maybe extra exon
+?	40DKH.raw_alg.faa.gz 0.7621461765948458 10 197 10 9 Y18D10A.25 legit gene fusion with a copy of a downstream highly expressed gene that still has internal promoter activity!
+O	40JSP.raw_alg.faa.gz 0.8087227414330218 5 18 5 3 C42D4.13 longest ORF
+R	40M1V.raw_alg.faa.gz 0.763095238095238 7 22 7 6 C52E4.2 very rare variant that could make sense
+R	40IY5.raw_alg.faa.gz 0.882748538011696 7 49 7 6 M04B2.7 rare variant
+O	40JK8.raw_alg.faa.gz 0.9063562647135758 7 21 7 5 F58G1.6 longest ORF
+O	40BSP.raw_alg.faa.gz 0.8251857912320174 10 53 10 7 T20D3.7 longest ORF
+S	40JCP.raw_alg.faa.gz 0.7995162070633769 8 6 8 4 short, could be okay
+S	40FY5.raw_alg.faa.gz 0.7561663784472559 7 6 7 5 also on the short side
+O	40IRZ.raw_alg.faa.gz 0.8738911886457718 8 12 8 4 F29G9.2 longest ORF
+O	40KM6.raw_alg.faa.gz 0.8509460083064144 6 11 6 4 C09B8.8 longest ORF
+O	40HXR.raw_alg.faa.gz 0.9154265873015873 6 24 6 4 C05E7.1 longest ORF
+S	40HYJ.raw_alg.faa.gz 0.8689736764270926 7 4 7 5 short
+O	40J6E.raw_alg.faa.gz 0.9015028901734105 7 26 7 6 C33F10.7 longest ORF, possible extra exon
+R	40RCA.raw_alg.faa.gz 0.7764198418404026 8 9 8 6 F35D11.2 rare long form?
+O	40JUA.raw_alg.faa.gz 0.8452722063037249 6 12 6 3 R04B3.1 longest ORF, it is a lot of UTR
+?	40IGP.raw_alg.faa.gz 0.834832134292566 6 198 6 5 F20A1.9 long, but could be correct and others are broken in assembly?
+O	40N1U.raw_alg.faa.gz 0.7789001122334456 5 36 5 4 M02H5.8 longest ORF, super highly expressed
+O	40JZ2.raw_alg.faa.gz 0.76 7 101 7 4 F09G8.5 longest ORF
+O	40K32.raw_alg.faa.gz 0.7941640378548895 7 31 7 6 F19B10.8 longest ORF
+O	40KMV.raw_alg.faa.gz 0.8520625889046942 5 16 5 3 Y67A10A.10 longest ORF
+O	40DBU.raw_alg.faa.gz 0.7631968883126505 10 7 10 5 ZK1307.1 longest ORF
+O	40CVN.raw_alg.faa.gz 0.8300399905904493 11 24 11 10 Y54E10BR.6 longest ORF, probably promoter in annotated intron
+O	40HME.raw_alg.faa.gz 0.8002210555402045 6 31 6 3 K08E4.5 longest ORF, extra exon?
+P	40RJY.raw_alg.faa.gz 0.7769135384962237 13 50 13 9 VC27A7L.1 pseudogene
+O	40J4A.raw_alg.faa.gz 0.8003776638791475 7 38 7 6 K12D9.1 longest ORF
+S	40K6M.raw_alg.faa.gz 0.7745704467353952 7 3 7 5 short 
+O	40JJI.raw_alg.faa.gz 0.8109949302915083 6 35 6 5 F18A1.2 longest ORF, more exons
+K	40ED2.raw_alg.faa.gz 0.7537956503898235 8 5 8 4 plausible
+O	40JS7.raw_alg.faa.gz 0.8536203522504893 6 21 6 4 F35B12.4 longest ORF
+R	40IUK.raw_alg.faa.gz 0.8233404710920771 5 68 5 4 H03E18.2 rare longer form?
+O	40JG8.raw_alg.faa.gz 0.920113868872876 9 34 9 6 C39E9.7 longest ORF
+O	40MJ0.raw_alg.faa.gz 0.9226804123711341 5 21 5 4 F53F4.15 longest ORF
+
+29	O longest ORF
+8	K,S okay or too short to say
+4	R rare variant makes some sense
+3	? weird
+1	P pseudogene
