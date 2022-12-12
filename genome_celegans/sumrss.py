@@ -1,7 +1,8 @@
 import sys
+import gzip
 
 count = 0
-with open(sys.argv[1]) as fp:
+with gzip.open(sys.argv[1], 'rt') as fp:
 	while True:
 		line = fp.readline()
 		if line == '': break
