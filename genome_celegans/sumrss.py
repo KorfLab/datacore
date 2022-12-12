@@ -10,7 +10,7 @@ with gzip.open(sys.argv[1], 'rt') as fp:
 		f = line.split()
 		if f[1] != 'RNASeq_splice': continue
 		count += float(f[5])
-print(count)
+print('RNASeq_splice:', count)
 
 # count all RNASeq
 count = 0
@@ -19,9 +19,9 @@ with gzip.open(sys.argv[1], 'rt') as fp:
 		line = fp.readline()
 		if line == '': break
 		f = line.split()
-		if f[5] == '.': continue
+		if fnmatch.fnmatch(f[1], 'RNASeq_*') != True: continue
 		if isinstance(float(f[5]), float) != True: continue
 		count += float(f[5])
-print(count)
+print('All RNASeq_:', count)
 
 
