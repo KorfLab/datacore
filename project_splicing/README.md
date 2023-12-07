@@ -16,6 +16,13 @@ APC Build
 
 These criteria above are the defaults in `apc_build`
 
+
+Stuff you need
+
++ grimoire for `haman`
++ genomikon for `isocounter`
++ executables and libraries in proper paths...
+
 Requires doing a C.elegans gene build with --issuesok
 
 	mkdir build
