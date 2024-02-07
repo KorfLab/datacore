@@ -63,7 +63,7 @@ lfh = open("apc.log.json", "w")
 # Main #
 ########
 
-gfh.write('# id\tlength\tintrons\tRNAseq\tisoforms\n')
+gfh.write('# id\tlength\tintrons\tRNAseq\tisoforms\tstrand\n')
 
 log = {
 	'total_gene_regions': 0,
@@ -179,7 +179,7 @@ for ff in glob.glob(f'{arg.genes}/*.fa'):
 	# made it!
 	##########
 	log['kept_genes'] += 1
-	gfh.write(f'{chrom.name}\t{len(chrom.seq)}\t{len(tx.introns)}\t{maxexp}\t{isos}\n')
+	gfh.write(f'{chrom.name}\t{len(chrom.seq)}\t{len(tx.introns)}\t{maxexp}\t{isos}\t{gene.strand}\n')
 	
 	# debug
 	#if debug > 999: break
