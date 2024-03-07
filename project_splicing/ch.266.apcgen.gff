@@ -13,100 +13,100 @@ ch.266	apc_isogen	gene	101	494	.	+	.	ID=Gene-ch.266
 ch.266	apc_isogen	mRNA	101	494	7.63560e-01	+	.	ID=iso-ch.266-1;Parent=Gene-ch.266
 ch.266	apc_isogen	exon	101	200	7.63560e-01	+	.	Parent=iso-ch.266-1;score=5.03169e+00;exfreq=2.53304e-02
 ch.266	apc_isogen	exon	258	494	7.63560e-01	+	.	Parent=iso-ch.266-1;score=2.75765e+01;exfreq=6.60793e-03
-ch.266	apc_isogen	intron	201	257	7.63560e-01	+	.	Parent=iso-ch.266-1;score=2.16566e+01;infreq=1.89003e-02
+ch.266	apc_isogen	intron	201	257	7.63560e-01	+	.	Parent=iso-ch.266-1;score=2.16566e+01;infreq=1.89003e-02;dscore=4.064963e+00;ascore=5.249337e+00
 
 ch.266	apc_isogen	mRNA	101	494	1.58926e-01	+	.	ID=iso-ch.266-2;Parent=Gene-ch.266
 ch.266	apc_isogen	exon	101	206	1.58926e-01	+	.	Parent=iso-ch.266-2;score=5.56405e+00;exfreq=2.53304e-02
 ch.266	apc_isogen	exon	258	494	1.58926e-01	+	.	Parent=iso-ch.266-2;score=2.75765e+01;exfreq=6.60793e-03
-ch.266	apc_isogen	intron	207	257	1.58926e-01	+	.	Parent=iso-ch.266-2;score=1.88599e+01;infreq=1.89003e-02
+ch.266	apc_isogen	intron	207	257	1.58926e-01	+	.	Parent=iso-ch.266-2;score=1.88599e+01;infreq=1.89003e-02;dscore=1.223305e+00;ascore=5.249337e+00
 
 ch.266	apc_isogen	mRNA	101	494	5.99646e-02	+	.	ID=iso-ch.266-3;Parent=Gene-ch.266
 ch.266	apc_isogen	exon	101	189	5.99646e-02	+	.	Parent=iso-ch.266-3;score=4.69957e+00;exfreq=2.53304e-02
 ch.266	apc_isogen	exon	258	494	5.99646e-02	+	.	Parent=iso-ch.266-3;score=2.75765e+01;exfreq=6.60793e-03
-ch.266	apc_isogen	intron	190	257	5.99646e-02	+	.	Parent=iso-ch.266-3;score=1.83182e+01;infreq=1.89003e-02
+ch.266	apc_isogen	intron	190	257	5.99646e-02	+	.	Parent=iso-ch.266-3;score=1.83182e+01;infreq=1.89003e-02;dscore=2.112010e-01;ascore=5.249337e+00
 
 ch.266	apc_isogen	mRNA	101	494	1.13136e-02	+	.	ID=iso-ch.266-4;Parent=Gene-ch.266
 ch.266	apc_isogen	exon	101	162	1.13136e-02	+	.	Parent=iso-ch.266-4;score=4.06605e+00;exfreq=9.47137e-02
 ch.266	apc_isogen	exon	258	494	1.13136e-02	+	.	Parent=iso-ch.266-4;score=2.75765e+01;exfreq=6.60793e-03
-ch.266	apc_isogen	intron	163	257	1.13136e-02	+	.	Parent=iso-ch.266-4;score=1.65456e+01;infreq=1.89003e-02
+ch.266	apc_isogen	intron	163	257	1.13136e-02	+	.	Parent=iso-ch.266-4;score=1.65456e+01;infreq=1.89003e-02;dscore=4.350826e+00;ascore=5.249337e+00
 
 ch.266	apc_isogen	mRNA	101	494	5.17532e-03	+	.	ID=iso-ch.266-5;Parent=Gene-ch.266
 ch.266	apc_isogen	exon	101	171	5.17532e-03	+	.	Parent=iso-ch.266-5;score=3.58244e+00;exfreq=7.15859e-02
 ch.266	apc_isogen	exon	258	494	5.17532e-03	+	.	Parent=iso-ch.266-5;score=2.75765e+01;exfreq=6.60793e-03
-ch.266	apc_isogen	intron	172	257	5.17532e-03	+	.	Parent=iso-ch.266-5;score=1.59009e+01;infreq=1.89003e-02
+ch.266	apc_isogen	intron	172	257	5.17532e-03	+	.	Parent=iso-ch.266-5;score=1.59009e+01;infreq=1.89003e-02;dscore=1.634975e+00;ascore=5.249337e+00
 
 ch.266	apc_isogen	mRNA	101	494	7.29173e-04	+	.	ID=iso-ch.266-6;Parent=Gene-ch.266
 ch.266	apc_isogen	exon	101	148	7.29173e-04	+	.	Parent=iso-ch.266-6;score=3.48348e+00;exfreq=9.47137e-02
 ch.266	apc_isogen	exon	191	494	7.29173e-04	+	.	Parent=iso-ch.266-6;score=3.56929e+01;exfreq=2.20264e-03
-ch.266	apc_isogen	intron	149	190	7.29173e-04	+	.	Parent=iso-ch.266-6;score=5.05605e+00;infreq=3.60825e-02
+ch.266	apc_isogen	intron	149	190	7.29173e-04	+	.	Parent=iso-ch.266-6;score=5.05605e+00;infreq=3.60825e-02;dscore=1.105340e-01;ascore=7.548377e+00
 
 ch.266	apc_isogen	mRNA	101	494	1.77498e-04	+	.	ID=iso-ch.266-7;Parent=Gene-ch.266
 ch.266	apc_isogen	exon	101	162	1.77498e-04	+	.	Parent=iso-ch.266-7;score=4.06605e+00;exfreq=9.47137e-02
 ch.266	apc_isogen	exon	207	494	1.77498e-04	+	.	Parent=iso-ch.266-7;score=3.54523e+01;exfreq=3.30396e-03
-ch.266	apc_isogen	intron	163	206	1.77498e-04	+	.	Parent=iso-ch.266-7;score=2.67570e+00;infreq=3.60825e-02
+ch.266	apc_isogen	intron	163	206	1.77498e-04	+	.	Parent=iso-ch.266-7;score=2.67570e+00;infreq=3.60825e-02;dscore=4.350826e+00;ascore=-1.992820e+00
 
 ch.266	apc_isogen	mRNA	101	494	1.03064e-04	+	.	ID=iso-ch.266-8;Parent=Gene-ch.266
 ch.266	apc_isogen	exon	101	162	1.03064e-04	+	.	Parent=iso-ch.266-8;score=4.06605e+00;exfreq=9.47137e-02
 ch.266	apc_isogen	exon	202	494	1.03064e-04	+	.	Parent=iso-ch.266-8;score=3.51943e+01;exfreq=3.30396e-03
-ch.266	apc_isogen	intron	163	201	1.03064e-04	+	.	Parent=iso-ch.266-8;score=2.14944e+00;infreq=3.60825e-02
+ch.266	apc_isogen	intron	163	201	1.03064e-04	+	.	Parent=iso-ch.266-8;score=2.14944e+00;infreq=3.60825e-02;dscore=4.350826e+00;ascore=4.152310e+00
 
 ch.266	apc_isogen	mRNA	101	494	2.87726e-05	+	.	ID=iso-ch.266-9;Parent=Gene-ch.266
 ch.266	apc_isogen	exon	101	148	2.87726e-05	+	.	Parent=iso-ch.266-9;score=3.48348e+00;exfreq=9.47137e-02
 ch.266	apc_isogen	exon	258	494	2.87726e-05	+	.	Parent=iso-ch.266-9;score=2.75765e+01;exfreq=6.60793e-03
-ch.266	apc_isogen	intron	149	257	2.87726e-05	+	.	Parent=iso-ch.266-9;score=8.50904e+00;infreq=1.89003e-02
+ch.266	apc_isogen	intron	149	257	2.87726e-05	+	.	Parent=iso-ch.266-9;score=8.50904e+00;infreq=1.89003e-02;dscore=1.105340e-01;ascore=5.249337e+00
 
 ch.266	apc_isogen	mRNA	101	494	1.75153e-05	+	.	ID=iso-ch.266-10;Parent=Gene-ch.266
 ch.266	apc_isogen	exon	101	148	1.75153e-05	+	.	Parent=iso-ch.266-10;score=3.48348e+00;exfreq=9.47137e-02
 ch.266	apc_isogen	exon	202	494	1.75153e-05	+	.	Parent=iso-ch.266-10;score=3.51943e+01;exfreq=3.30396e-03
-ch.266	apc_isogen	intron	149	201	1.75153e-05	+	.	Parent=iso-ch.266-10;score=1.75157e-01;infreq=3.60825e-02
+ch.266	apc_isogen	intron	149	201	1.75153e-05	+	.	Parent=iso-ch.266-10;score=1.75157e-01;infreq=3.60825e-02;dscore=1.105340e-01;ascore=4.152310e+00
 
 ch.266	apc_isogen	mRNA	101	494	2.75798e-06	+	.	ID=iso-ch.266-11;Parent=Gene-ch.266
 ch.266	apc_isogen	exon	101	200	2.75798e-06	+	.	Parent=iso-ch.266-11;score=5.03169e+00;exfreq=2.53304e-02
 ch.266	apc_isogen	exon	261	494	2.75798e-06	+	.	Parent=iso-ch.266-11;score=2.68878e+01;exfreq=6.60793e-03
-ch.266	apc_isogen	intron	201	260	2.75798e-06	+	.	Parent=iso-ch.266-11;score=4.26650e+00;infreq=1.20275e-02
+ch.266	apc_isogen	intron	201	260	2.75798e-06	+	.	Parent=iso-ch.266-11;score=4.26650e+00;infreq=1.20275e-02;dscore=4.064963e+00;ascore=-1.193876e+01
 
 ch.266	apc_isogen	mRNA	101	494	5.59401e-07	+	.	ID=iso-ch.266-12;Parent=Gene-ch.266
 ch.266	apc_isogen	exon	101	206	5.59401e-07	+	.	Parent=iso-ch.266-12;score=5.56405e+00;exfreq=2.53304e-02
 ch.266	apc_isogen	exon	261	494	5.59401e-07	+	.	Parent=iso-ch.266-12;score=2.68878e+01;exfreq=6.60793e-03
-ch.266	apc_isogen	intron	207	260	5.59401e-07	+	.	Parent=iso-ch.266-12;score=1.43249e+00;infreq=1.20275e-02
+ch.266	apc_isogen	intron	207	260	5.59401e-07	+	.	Parent=iso-ch.266-12;score=1.43249e+00;infreq=1.20275e-02;dscore=1.223305e+00;ascore=-1.193876e+01
 
 ch.266	apc_isogen	mRNA	101	494	2.78234e-07	+	.	ID=iso-ch.266-13;Parent=Gene-ch.266
 ch.266	apc_isogen	exon	101	148	2.78234e-07	+	.	Parent=iso-ch.266-13;score=3.48348e+00;exfreq=9.47137e-02
 ch.266	apc_isogen	exon	207	494	2.78234e-07	+	.	Parent=iso-ch.266-13;score=3.54523e+01;exfreq=3.30396e-03
-ch.266	apc_isogen	intron	149	206	2.78234e-07	+	.	Parent=iso-ch.266-13;score=-6.05902e+00;infreq=3.60825e-02
+ch.266	apc_isogen	intron	149	206	2.78234e-07	+	.	Parent=iso-ch.266-13;score=-6.05902e+00;infreq=3.60825e-02;dscore=1.105340e-01;ascore=-1.992820e+00
 
 ch.266	apc_isogen	mRNA	101	494	2.26446e-07	+	.	ID=iso-ch.266-14;Parent=Gene-ch.266
 ch.266	apc_isogen	exon	101	189	2.26446e-07	+	.	Parent=iso-ch.266-14;score=4.69957e+00;exfreq=2.53304e-02
 ch.266	apc_isogen	exon	261	494	2.26446e-07	+	.	Parent=iso-ch.266-14;score=2.68878e+01;exfreq=6.60793e-03
-ch.266	apc_isogen	intron	190	260	2.26446e-07	+	.	Parent=iso-ch.266-14;score=9.92243e-01;infreq=1.20275e-02
+ch.266	apc_isogen	intron	190	260	2.26446e-07	+	.	Parent=iso-ch.266-14;score=9.92243e-01;infreq=1.20275e-02;dscore=2.112010e-01;ascore=-1.193876e+01
 
 ch.266	apc_isogen	mRNA	101	494	1.59649e-07	+	.	ID=iso-ch.266-15;Parent=Gene-ch.266
 ch.266	apc_isogen	exon	101	200	1.59649e-07	+	.	Parent=iso-ch.266-15;score=5.03169e+00;exfreq=2.53304e-02
 ch.266	apc_isogen	exon	304	494	1.59649e-07	+	.	Parent=iso-ch.266-15;score=2.89475e+01;exfreq=2.64317e-02
-ch.266	apc_isogen	intron	201	303	1.59649e-07	+	.	Parent=iso-ch.266-15;score=-1.90390e+00;infreq=1.71821e-03
+ch.266	apc_isogen	intron	201	303	1.59649e-07	+	.	Parent=iso-ch.266-15;score=-1.90390e+00;infreq=1.71821e-03;dscore=4.064963e+00;ascore=-7.100385e+00
 
 ch.266	apc_isogen	mRNA	101	494	9.83948e-08	+	.	ID=iso-ch.266-16;Parent=Gene-ch.266
 ch.266	apc_isogen	exon	101	319	9.83948e-08	+	.	Parent=iso-ch.266-16;score=1.22034e+01;exfreq=2.20264e-03
 ch.266	apc_isogen	exon	374	494	9.83948e-08	+	.	Parent=iso-ch.266-16;score=2.47942e+01;exfreq=8.92070e-02
-ch.266	apc_isogen	intron	320	373	9.83948e-08	+	.	Parent=iso-ch.266-16;score=-5.62051e+00;infreq=3.60825e-02
+ch.266	apc_isogen	intron	320	373	9.83948e-08	+	.	Parent=iso-ch.266-16;score=-5.62051e+00;infreq=3.60825e-02;dscore=1.307113e+00;ascore=-6.321824e+00
 
 ch.266	apc_isogen	mRNA	101	494	8.59234e-08	+	.	ID=iso-ch.266-17;Parent=Gene-ch.266
 ch.266	apc_isogen	exon	101	293	8.59234e-08	+	.	Parent=iso-ch.266-17;score=9.93961e+00;exfreq=4.40529e-03
 ch.266	apc_isogen	exon	335	494	8.59234e-08	+	.	Parent=iso-ch.266-17;score=2.67242e+01;exfreq=6.60793e-02
-ch.266	apc_isogen	intron	294	334	8.59234e-08	+	.	Parent=iso-ch.266-17;score=-5.48230e+00;infreq=3.60825e-02
+ch.266	apc_isogen	intron	294	334	8.59234e-08	+	.	Parent=iso-ch.266-17;score=-5.48230e+00;infreq=3.60825e-02;dscore=-8.923380e-01;ascore=-3.148061e+00
 
 ch.266	apc_isogen	mRNA	101	494	4.54890e-08	+	.	ID=iso-ch.266-18;Parent=Gene-ch.266
 ch.266	apc_isogen	exon	101	319	4.54890e-08	+	.	Parent=iso-ch.266-18;score=1.22034e+01;exfreq=2.20264e-03
 ch.266	apc_isogen	exon	365	494	4.54890e-08	+	.	Parent=iso-ch.266-18;score=2.40372e+01;exfreq=8.92070e-02
-ch.266	apc_isogen	intron	320	364	4.54890e-08	+	.	Parent=iso-ch.266-18;score=-5.97659e+00;infreq=3.60825e-02
+ch.266	apc_isogen	intron	320	364	4.54890e-08	+	.	Parent=iso-ch.266-18;score=-5.97659e+00;infreq=3.60825e-02;dscore=1.307113e+00;ascore=-8.360319e+00
 
 ch.266	apc_isogen	mRNA	101	494	4.51643e-08	+	.	ID=iso-ch.266-19;Parent=Gene-ch.266
 ch.266	apc_isogen	exon	101	162	4.51643e-08	+	.	Parent=iso-ch.266-19;score=4.06605e+00;exfreq=9.47137e-02
 ch.266	apc_isogen	exon	261	494	4.51643e-08	+	.	Parent=iso-ch.266-19;score=2.68878e+01;exfreq=6.60793e-03
-ch.266	apc_isogen	intron	163	260	4.51643e-08	+	.	Parent=iso-ch.266-19;score=-7.00148e-01;infreq=1.20275e-02
+ch.266	apc_isogen	intron	163	260	4.51643e-08	+	.	Parent=iso-ch.266-19;score=-7.00148e-01;infreq=1.20275e-02;dscore=4.350826e+00;ascore=-1.193876e+01
 
 ch.266	apc_isogen	mRNA	101	494	2.59174e-08	+	.	ID=iso-ch.266-20;Parent=Gene-ch.266
 ch.266	apc_isogen	exon	101	206	2.59174e-08	+	.	Parent=iso-ch.266-20;score=5.56405e+00;exfreq=2.53304e-02
 ch.266	apc_isogen	exon	304	494	2.59174e-08	+	.	Parent=iso-ch.266-20;score=2.89475e+01;exfreq=2.64317e-02
-ch.266	apc_isogen	intron	207	303	2.59174e-08	+	.	Parent=iso-ch.266-20;score=-5.05916e+00;infreq=1.71821e-03
+ch.266	apc_isogen	intron	207	303	2.59174e-08	+	.	Parent=iso-ch.266-20;score=-5.05916e+00;infreq=1.71821e-03;dscore=1.223305e+00;ascore=-7.100385e+00
 
