@@ -1,11 +1,11 @@
 {
     "total_gene_regions": 20326,
-    "multiple_genes": 4037,
+    "multiple_genes": 4038,
     "no_introns": 796,
-    "poorly_expressed": 9080,
+    "poorly_expressed": 9079,
     "non_canonical": 633,
     "gene_too_long": 4752,
     "too_many_introns": 30,
-    "too_many_isoforms": 330,
-    "kept_genes": 668
+    "too_many_isoforms": 333,
+    "kept_genes": 665
 }
